@@ -31,7 +31,7 @@
 						<xs:sequence>
 							<xs:element name="СвОЭДОтпр" minOccurs="0">
 								<xs:annotation>
-									<xs:documentation>Сведения об операторе электронного документооборота отправителя файла обмена счета-фактуры (информации продавца)</xs:documentation>
+									<xs:documentation>Сведения об операторе электронного документооборота отправителя файла обмена</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
 									<xs:attribute name="НаимОрг" use="required">
@@ -52,7 +52,7 @@
 									</xs:attribute>
 									<xs:attribute name="ИдЭДО" use="required">
 										<xs:annotation>
-											<xs:documentation>Идентификатор оператора электронного документооборота отправителя файла обмена счета-фактуры (информации продавца)</xs:documentation>
+											<xs:documentation>Идентификатор оператора электронного документооборота отправителя файла обмена</xs:documentation>
 										</xs:annotation>
 										<xs:simpleType>
 											<xs:restriction base="xs:string">
@@ -65,7 +65,7 @@
 						</xs:sequence>
 						<xs:attribute name="ИдОтпр" use="required">
 							<xs:annotation>
-								<xs:documentation>Идентификатор участника документооборота – отправителя файла обмена счета-фактуры (информации продавца)</xs:documentation>
+								<xs:documentation>Идентификатор участника документооборота – отправителя файла обмена</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -76,7 +76,7 @@
 						</xs:attribute>
 						<xs:attribute name="ИдПол" use="required">
 							<xs:annotation>
-								<xs:documentation>Идентификатор участника документооборота - получателя файла обмена счета-фактуры (информации продавца)</xs:documentation>
+								<xs:documentation>Идентификатор участника документооборота - получателя файла обмена</xs:documentation>
 							</xs:annotation>
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
@@ -240,7 +240,7 @@
 												</xs:sequence>
 												<xs:attribute name="ГосРегИПВыдДов" use="optional">
 													<xs:annotation>
-														<xs:documentation>Реквизиты свидетельства о государственной регистрации индивидуального предпринимателя, выдавшего доверенность организации на подписание счета-фактуры</xs:documentation>
+														<xs:documentation>Реквизиты свидетельства о государственной регистрации индивидуального предпринимателя, выдавшего доверенность организации на подписание</xs:documentation>
 													</xs:annotation>
 													<xs:simpleType>
 														<xs:restriction base="xs:string">
@@ -743,7 +743,7 @@
 		</xs:sequence>
 		<xs:attribute name="ГосРегИПВыдДов" use="optional">
 			<xs:annotation>
-				<xs:documentation>Реквизиты свидетельства о государственной регистрации индивидуального предпринимателя, выдавшего доверенность физическому лицу на подписание счета-фактуры</xs:documentation>
+				<xs:documentation>Реквизиты свидетельства о государственной регистрации индивидуального предпринимателя, выдавшего доверенность физическому лицу на подписание</xs:documentation>
 			</xs:annotation>
 			<xs:simpleType>
 				<xs:restriction base="xs:string">
