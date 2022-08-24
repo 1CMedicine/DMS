@@ -89,7 +89,7 @@
 				</xs:element>
 				<xs:element name="Документ">
 					<xs:annotation>
-						<xs:documentation>Гарантийное письмо</xs:documentation>
+						<xs:documentation>Отзыв гарантийного письма</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
