@@ -1232,60 +1232,6 @@
           <xs:documentation>Контактные данные</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="БанкРекв" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>Банковские реквизиты</xs:documentation>
-        </xs:annotation>
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element name="СвБанк" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Сведения о банке</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:attribute name="НаимБанк" use="optional">
-                  <xs:annotation>
-                    <xs:documentation>Наименование банка</xs:documentation>
-                  </xs:annotation>
-                  <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                      <xs:minLength value="1"/>
-                      <xs:maxLength value="1000"/>
-                    </xs:restriction>
-                  </xs:simpleType>
-                </xs:attribute>
-                <xs:attribute name="БИК" type="БИКТип" use="optional">
-                  <xs:annotation>
-                    <xs:documentation>Банковский идентификационный код (БИК) в соответствии со «Справочником БИК РФ»</xs:documentation>
-                  </xs:annotation>
-                </xs:attribute>
-                <xs:attribute name="КорСчет" use="optional">
-                  <xs:annotation>
-                    <xs:documentation>Корреспондентский счет банка</xs:documentation>
-                  </xs:annotation>
-                  <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                      <xs:minLength value="1"/>
-                      <xs:maxLength value="20"/>
-                    </xs:restriction>
-                  </xs:simpleType>
-                </xs:attribute>
-              </xs:complexType>
-            </xs:element>
-          </xs:sequence>
-          <xs:attribute name="НомерСчета" use="optional">
-            <xs:annotation>
-              <xs:documentation>Номер банковского счета</xs:documentation>
-            </xs:annotation>
-            <xs:simpleType>
-              <xs:restriction base="xs:string">
-                <xs:minLength value="1"/>
-                <xs:maxLength value="20"/>
-              </xs:restriction>
-            </xs:simpleType>
-          </xs:attribute>
-        </xs:complexType>
-      </xs:element>
     </xs:sequence>
     <xs:attribute name="ОКПО" use="optional">
       <xs:annotation>
@@ -1971,15 +1917,6 @@
     <xs:restriction base="xs:string">
       <xs:length value="3"/>
       <xs:pattern value="[0-9]{3}"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="БИКТип">
-    <xs:annotation>
-      <xs:documentation>БИК банка</xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:length value="9"/>
-      <xs:pattern value="[0-9]{9}"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="СПДУЛТип">
