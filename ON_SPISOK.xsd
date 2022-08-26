@@ -1328,167 +1328,127 @@
           <xs:documentation>Сведения о работодателе</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ИнфоПричОбращ" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="ДатаРожд" type="ДатаТип" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Информация о причине обращения</xs:documentation>
+          <xs:documentation>Дата рождения</xs:documentation>
         </xs:annotation>
-        <xs:complexType>
-          <xs:attribute name="КодДиаг" use="required">
-            <xs:annotation>
-              <xs:documentation>Код диагноза в соответствии международным классификатором болезней (МКБ-10)</xs:documentation>
-            </xs:annotation>
-            <xs:simpleType>
-              <xs:restriction base="xs:string">
-                <xs:minLength value="1"/>
-                <xs:maxLength value="10"/>
-              </xs:restriction>
-            </xs:simpleType>
-          </xs:attribute>
-          <xs:attribute name="НаимДиаг" use="required">
-            <xs:annotation>
-              <xs:documentation>Наименование диагноза в соответствии международным классификатором болезней (МКБ-10)</xs:documentation>
-            </xs:annotation>
-            <xs:simpleType>
-              <xs:restriction base="xs:string">
-                <xs:minLength value="1"/>
-                <xs:maxLength value="255"/>
-              </xs:restriction>
-            </xs:simpleType>
-          </xs:attribute>
-          <xs:attribute name="ПоводОбр" use="optional">
-            <xs:annotation>
-              <xs:documentation>Повод обращения</xs:documentation>
-            </xs:annotation>
-            <xs:simpleType>
-              <xs:restriction base="xs:string">
-                <xs:minLength value="1"/>
-                <xs:maxLength value="2000"/>
-              </xs:restriction>
-            </xs:simpleType>
-          </xs:attribute>
-        </xs:complexType>
+      </xs:element>
+      <xs:element name="СНИЛС" type="СНИЛСТип" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Уникальный номер индивидуального лицевого счета лица (СНИЛС)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Пол" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Пол физического лица. 1 - мужской, 2 - женский</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="1"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="АдресСтрокой" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Адрес фактического проживания строкой</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="500"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="СведДУЛСтрокой" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Сведения о документе, удостоверяющего личность строкой</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="255"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="НомОМС" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Номер полиса ОМС. Обязателен при указании значения «1» в элементе ПрФормДок</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="16"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="СерНомДМС" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Серия, номер полиса ДМС. Обязателен при указании значения «1» в элементе ПрФормДок</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="255"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="НачДМС" type="ДатаТип" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Дата начала действия полиса ДМС </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ОкончДМС" type="ДатаТип" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Дата окончания действия полиса ДМС</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ОтнКРаб" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Отношение к работодателю</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="16"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Должн" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Должность</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="255"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Категория" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Категория застрахованного лица</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="255"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="СведПредставит" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Сведения о представителе физического лица. Заполняется при наличии сопровождающего лица. Обязателен при указании значения «1» в элементе ПрФормДок
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="255"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="ДатаРожд" type="ДатаТип" use="required">
-      <xs:annotation>
-        <xs:documentation>Дата формирования файла обмена заказа (заявки)</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="СНИЛС" type="СНИЛСТип" use="optional">
-      <xs:annotation>
-        <xs:documentation>Уникальный номер индивидуального лицевого счета лица (СНИЛС)</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="Пол" use="optional">
-      <xs:annotation>
-        <xs:documentation>Пол физического лица. 1 - мужской, 2 - женский</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:length value="1"/>
-          <xs:enumeration value="1"/>
-          <xs:enumeration value="2"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="АдресСтрокой" use="optional">
-      <xs:annotation>
-        <xs:documentation>Адрес фактического проживания строкой</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:minLength value="1"/>
-          <xs:maxLength value="500"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="СведДУЛСтрокой" use="optional">
-      <xs:annotation>
-        <xs:documentation>Сведения о документе, удостоверяющего личность строкой</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:minLength value="1"/>
-          <xs:maxLength value="255"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="НомОМС" use="optional">
-      <xs:annotation>
-        <xs:documentation>Номер полиса ОМС. Обязателен при указании значения «1» в элементе ПрФормДок</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:length value="16"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="СерНомДМС" use="optional">
-      <xs:annotation>
-        <xs:documentation>Серия, номер полиса ДМС. Обязателен при указании значения «1» в элементе ПрФормДок</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:minLength value="1"/>
-          <xs:maxLength value="255"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="НачДМС" type="ДатаТип" use="optional">
-      <xs:annotation>
-        <xs:documentation>Дата начала действия полиса ДМС </xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="ОкончДМС" type="ДатаТип" use="optional">
-      <xs:annotation>
-        <xs:documentation>Дата окончания действия полиса ДМС</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="ОтнКРаб" use="optional">
-      <xs:annotation>
-        <xs:documentation>Отношение к работодателю</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:length value="16"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="Должн" use="optional">
-      <xs:annotation>
-        <xs:documentation>Должность</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:minLength value="1"/>
-          <xs:maxLength value="255"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="Категория" use="optional">
-      <xs:annotation>
-        <xs:documentation>Категория застрахованного лица</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:minLength value="1"/>
-          <xs:maxLength value="255"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="СведПредставит" use="optional">
-      <xs:annotation>
-        <xs:documentation>
-          Сведения о представителе физического лица. Заполняется при наличии сопровождающего лица. Обязателен при указании значения «1» в элементе ПрФормДок
-        </xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:minLength value="1"/>
-          <xs:maxLength value="255"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
   </xs:complexType>
   <xs:simpleType name="ДатаТип">
     <xs:annotation>
