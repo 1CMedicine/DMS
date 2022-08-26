@@ -197,30 +197,17 @@
                           </xs:complexType>
                         </xs:element>
                       </xs:sequence>
-                      <xs:attribute name="ПризнМодиф" use="required">
-                        <xs:annotation>
-                          <xs:documentation>Признак модификации данных. 1-Прикрепление, 2-Изменение, 3-Открепление</xs:documentation>
-                        </xs:annotation>
-                        <xs:simpleType>
-                          <xs:restriction base="xs:string">
-                            <xs:length value="1"/>
-                            <xs:enumeration value="1"/>
-                            <xs:enumeration value="2"/>
-                            <xs:enumeration value="3"/>
-                          </xs:restriction>
-                        </xs:simpleType>
-                      </xs:attribute>
                       <xs:attribute name="НачОбсл" type="ДатаТип" use="required">
                         <xs:annotation>
                           <xs:documentation>Дата начала обслуживания</xs:documentation>
                         </xs:annotation>
                       </xs:attribute>
-                      <xs:attribute name="ДатаДМСОткрепл" type="ДатаТип" use="required">
+                      <xs:attribute name="ДатаДМСОткрепл" type="ДатаТип" use="optional">
                         <xs:annotation>
                           <xs:documentation>Дата досрочного открепления от МО, от программы ДМС</xs:documentation>
                         </xs:annotation>
                       </xs:attribute>
-                      <xs:attribute name="ОкончОбсл" type="ДатаТип" use="required">
+                      <xs:attribute name="ОкончОбсл" type="ДатаТип" use="optional">
                         <xs:annotation>
                           <xs:documentation>Дата окончания обслуживания</xs:documentation>
                         </xs:annotation>
@@ -527,19 +514,14 @@
                 <xs:documentation>Дата документа</xs:documentation>
               </xs:annotation>
             </xs:attribute>
-            <xs:attribute name="ДатаНач" type="ДатаТип" use="required">
+            <xs:attribute name="ТипСписка" use="required">
               <xs:annotation>
-                <xs:documentation>Дата начала действия гарантийных обязательств</xs:documentation>
-              </xs:annotation>
-            </xs:attribute>
-            <xs:attribute name="ДатаОконч" type="ДатаТип" use="required">
-              <xs:annotation>
-                <xs:documentation>Дата окончания действия гарантийных обязательств</xs:documentation>
-              </xs:annotation>
-            </xs:attribute>
-            <xs:attribute name="ПризДок" use="required">
-              <xs:annotation>
-                <xs:documentation>Признак документа. 1 - основное, 2 - дополнительное</xs:documentation>
+                <xs:documentation>
+                  Действие с застрахованными лицами. Принимает одно из следующих значений:
+                  1 – Прикрепление;
+                  2 – Открепление;
+                  3 – Изменение.
+                </xs:documentation>
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:string">

@@ -443,6 +443,17 @@
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
+                            <xs:attribute name="Источник" use="optional">
+                              <xs:annotation>
+                                <xs:documentation>Источник кодов и наименования услуги</xs:documentation>
+                              </xs:annotation>
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:minLength value="1"/>
+                                  <xs:maxLength value="255"/>
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:attribute>
                             <xs:attribute name="МестоОказания" use="required">
                               <xs:annotation>
                                 <xs:documentation>Тип места оказания медицинской помощи. OID справочника 1.2.643.5.1.13.13.11.1008 ФНСИ «Место оказания медицинской помощи»</xs:documentation>

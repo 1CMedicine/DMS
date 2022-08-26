@@ -139,7 +139,7 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="СведОДог" type="РеквДокТип" minOccurs="0">
+              <xs:element name="СведОДок" type="РеквДокТип" minOccurs="0">
                 <xs:annotation>
                   <xs:documentation>Сведения об основном документе</xs:documentation>
                 </xs:annotation>
@@ -326,6 +326,17 @@
                                 </xs:simpleType>
                               </xs:element>
                             </xs:sequence>
+                            <xs:attribute name="УдалОказ" use="optional">
+                              <xs:annotation>
+                                <xs:documentation>Удаленность оказания для помощи на дому, для скорой / неотложной помощи</xs:documentation>
+                              </xs:annotation>
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:minLength value="1"/>
+                                  <xs:maxLength value="255"/>
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:attribute>
                             <xs:attribute name="Класс" use="optional">
                               <xs:annotation>
                                 <xs:documentation>
@@ -336,6 +347,17 @@
                                 <xs:restriction base="xs:string">
                                   <xs:minLength value="1"/>
                                   <xs:maxLength value="50"/>
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:attribute>
+                            <xs:attribute name="Источник" use="optional">
+                              <xs:annotation>
+                                <xs:documentation>Источник кодов и наименования услуги</xs:documentation>
+                              </xs:annotation>
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:minLength value="1"/>
+                                  <xs:maxLength value="255"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
