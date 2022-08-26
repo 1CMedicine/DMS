@@ -2088,7 +2088,7 @@
   </xs:simpleType>
   <xs:simpleType name="СПДУЛТип">
     <xs:annotation>
-      <xs:documentation>Коды Справочника видов документов, удостоверяющих личность налогоплательщика</xs:documentation>
+      <xs:documentation>Коды Справочника видов документов, удостоверяющих личность</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:length value="2"/>
