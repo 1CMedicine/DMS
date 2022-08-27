@@ -130,7 +130,7 @@
                           <xs:simpleType>
                             <xs:restriction base="xs:string">
                               <xs:minLength value="1"/>
-                              <xs:maxLength value="255"/>
+                              <xs:maxLength value="150"/>
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:attribute>
@@ -276,18 +276,17 @@
                               <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                   <xs:minLength value="1"/>
-                                  <xs:maxLength value="1"/>
+                                  <xs:maxLength value="50"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
                             <xs:attribute name="НомерЗуба" use="optional">
                               <xs:annotation>
-                                <xs:documentation>Номер зуба</xs:documentation>
+                                <xs:documentation>Номер зуба.Важно применять зубную формулу. Важно соблюдать условие: 1 услуга – 1 зуб</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                  <xs:minLength value="1"/>
-                                  <xs:maxLength value="255"/>
+                                <xs:restriction base="xs:integer">
+                                  <xs:totalDigits value="2"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
@@ -350,6 +349,16 @@
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
+                            <xs:attribute name="НомерЗуба" use="optional">
+                              <xs:annotation>
+                                <xs:documentation>Номер зуба.Важно применять зубную формулу. Важно соблюдать условие: 1 услуга – 1 зуб</xs:documentation>
+                              </xs:annotation>
+                              <xs:simpleType>
+                                <xs:restriction base="xs:integer">
+                                  <xs:totalDigits value="2"/>
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:attribute>
                             <xs:attribute name="Источник" use="optional">
                               <xs:annotation>
                                 <xs:documentation>Источник кодов и наименования услуги</xs:documentation>
@@ -357,7 +366,7 @@
                               <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                   <xs:minLength value="1"/>
-                                  <xs:maxLength value="255"/>
+                                  <xs:maxLength value="150"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
@@ -1040,7 +1049,7 @@
     </xs:attribute>
     <xs:attribute name="ДефИННФЛ" use="optional">
       <xs:annotation>
-        <xs:documentation>ИНН при составлении документа с Функция=СЧФ или Функция=СЧФДОП налоговым агентом, указанным в пунктах 2 и 3 статьи 161 НК РФ, в части информации о продавце/грузоотправителе</xs:documentation>
+        <xs:documentation>ИНН</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -1150,7 +1159,7 @@
                 </xs:attribute>
                 <xs:attribute name="ДефИННЮЛ" use="optional">
                   <xs:annotation>
-                    <xs:documentation>ИНН при составлении документа с Функция=СЧФ или Функция=СЧФДОП налоговым агентом, указанным в пунктах 2 и 3 статьи 161 НК РФ, в части информации о продавце/грузоотправителе/грузополучателе или для документа с Функция=СЧФ, выставляемом при получении оплаты, частичной оплаты в счет предстоящих поставок товаров (выполнения работ, оказания услуг), передачи имущественных прав, в части информации о грузоотправителе/грузополучателе</xs:documentation>
+                    <xs:documentation>ИНН</xs:documentation>
                   </xs:annotation>
                   <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -1656,7 +1665,7 @@
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
-            <xs:maxLength value="255"/>
+            <xs:maxLength value="150"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1667,7 +1676,7 @@
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
-            <xs:maxLength value="255"/>
+            <xs:maxLength value="150"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1680,7 +1689,7 @@
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
-            <xs:maxLength value="255"/>
+            <xs:maxLength value="1000"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>

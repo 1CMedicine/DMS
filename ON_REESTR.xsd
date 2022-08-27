@@ -124,7 +124,7 @@
                           <xs:simpleType>
                             <xs:restriction base="xs:string">
                               <xs:minLength value="1"/>
-                              <xs:maxLength value="255"/>
+                              <xs:maxLength value="150"/>
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:attribute>
@@ -304,14 +304,14 @@
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
-                            <xs:attribute name="КатегПалаты" use="optional">
+                            <xs:attribute name="КатегорПалаты" use="optional">
                               <xs:annotation>
                                 <xs:documentation>Категория палаты</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                   <xs:minLength value="1"/>
-                                  <xs:maxLength value="255"/>
+                                  <xs:maxLength value="50"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
@@ -339,25 +339,13 @@
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
-                            <xs:attribute name="КатегорПалата" use="optional">
-                              <xs:annotation>
-                                <xs:documentation>Категория палаты</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                  <xs:minLength value="1"/>
-                                  <xs:maxLength value="1"/>
-                                </xs:restriction>
-                              </xs:simpleType>
-                            </xs:attribute>
                             <xs:attribute name="НомерЗуба" use="optional">
                               <xs:annotation>
                                 <xs:documentation>Номер зуба.Важно применять зубную формулу. Важно соблюдать условие: 1 услуга – 1 зуб</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                  <xs:minLength value="1"/>
-                                  <xs:maxLength value="2"/>
+                                <xs:restriction base="xs:integer">
+                                  <xs:totalDigits value="2"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
@@ -384,17 +372,6 @@
                         <xs:complexContent>
                           <xs:extension base="СведТовТип">
                             <xs:sequence>
-                              <xs:element name="УсловОказМедПом" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Условия оказания медицинской помощи. Принимает значение в соответствии с НСИ «Условия оказания медицинской помощи» 1.2.643.5.1.13.13.99.2.322</xs:documentation>
-                                </xs:annotation>
-                                <xs:simpleType>
-                                  <xs:restriction base="xs:string">
-                                    <xs:minLength value="1"/>
-                                    <xs:maxLength value="50"/>
-                                  </xs:restriction>
-                                </xs:simpleType>
-                              </xs:element>
                               <xs:element name="Диагноз" type="ДиагнозТип" minOccurs="0" maxOccurs="unbounded">
                                 <xs:annotation>
                                   <xs:documentation>Диагноз</xs:documentation>
@@ -421,14 +398,24 @@
                                 <xs:documentation>Дата начала оказания услуги</xs:documentation>
                               </xs:annotation>
                             </xs:attribute>
+                              <xs:attribute name="УсловОказ" use="optional">
+                                <xs:annotation>
+                                  <xs:documentation>Условия оказания медицинской помощи. Принимает значение в соответствии с НСИ «Условия оказания медицинской помощи» 1.2.643.5.1.13.13.99.2.322</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:minLength value="1"/>
+                                    <xs:maxLength value="50"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:attribute>
                             <xs:attribute name="НомерЗуба" use="optional">
                               <xs:annotation>
                                 <xs:documentation>Номер зуба.Важно применять зубную формулу. Важно соблюдать условие: 1 услуга – 1 зуб</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                  <xs:minLength value="1"/>
-                                  <xs:maxLength value="2"/>
+                                <xs:restriction base="xs:integer">
+                                  <xs:totalDigits value="2"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
@@ -450,7 +437,7 @@
                               <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                   <xs:minLength value="1"/>
-                                  <xs:maxLength value="255"/>
+                                  <xs:maxLength value="150"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
@@ -1048,7 +1035,7 @@
     </xs:attribute>
     <xs:attribute name="ДефИННФЛ" use="optional">
       <xs:annotation>
-        <xs:documentation>ИНН при составлении документа с Функция=СЧФ или Функция=СЧФДОП налоговым агентом, указанным в пунктах 2 и 3 статьи 161 НК РФ, в части информации о продавце/грузоотправителе</xs:documentation>
+        <xs:documentation>ИНН</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -1158,7 +1145,7 @@
                 </xs:attribute>
                 <xs:attribute name="ДефИННЮЛ" use="optional">
                   <xs:annotation>
-                    <xs:documentation>ИНН при составлении документа с Функция=СЧФ или Функция=СЧФДОП налоговым агентом, указанным в пунктах 2 и 3 статьи 161 НК РФ, в части информации о продавце/грузоотправителе/грузополучателе или для документа с Функция=СЧФ, выставляемом при получении оплаты, частичной оплаты в счет предстоящих поставок товаров (выполнения работ, оказания услуг), передачи имущественных прав, в части информации о грузоотправителе/грузополучателе</xs:documentation>
+                    <xs:documentation>ИНН</xs:documentation>
                   </xs:annotation>
                   <xs:simpleType>
                     <xs:restriction base="xs:string">

@@ -148,6 +148,11 @@
                                   </xs:restriction>
                                 </xs:simpleType>
                               </xs:element>
+                              <xs:element name="ЦенаСкидка" type="СведЦенаСкидкаТип" minOccurs="1" maxOccurs="1">
+                                <xs:annotation>
+                                  <xs:documentation>Ценовые условия</xs:documentation>
+                                </xs:annotation>
+                              </xs:element>
                               <xs:element name="ДопОпис" minOccurs="0">
                                 <xs:annotation>
                                   <xs:documentation>Описание объема</xs:documentation>
@@ -171,11 +176,6 @@
                                     </xs:simpleType>
                                   </xs:attribute>
                                 </xs:complexType>
-                              </xs:element>
-                              <xs:element name="ЦенаСкидка" type="СведЦенаСкидкаТип" minOccurs="1" maxOccurs="1">
-                                <xs:annotation>
-                                  <xs:documentation>Ценовые условия</xs:documentation>
-                                </xs:annotation>
                               </xs:element>
                             </xs:sequence>
                             <xs:attribute name="КолМедУсл" use="required">
@@ -216,7 +216,7 @@
                               <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                   <xs:minLength value="1"/>
-                                  <xs:maxLength value="1"/>
+                                  <xs:maxLength value="50"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
@@ -270,12 +270,42 @@
                                   <xs:documentation>Ценовые условия, в том числе сумма акциза</xs:documentation>
                                 </xs:annotation>
                               </xs:element>
-                              <xs:element name="Акциз" type="СумАкцизТип" minOccurs="0" maxOccurs="1">
+                              <xs:element name="ДопОпис" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>В том числе сумма акциза</xs:documentation>
+                                  <xs:documentation>Описание объема</xs:documentation>
                                 </xs:annotation>
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ТекстИнф" type="ТекстИнфТип" minOccurs="0" maxOccurs="unbounded">
+                                      <xs:annotation>
+                                        <xs:documentation>Текстовая информация</xs:documentation>
+                                      </xs:annotation>
+                                    </xs:element>
+                                  </xs:sequence>
+                                  <xs:attribute name="ИдФайлИнфПол" use="optional">
+                                    <xs:annotation>
+                                      <xs:documentation>Идентификатор  файла информационного поля</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:simpleType>
+                                      <xs:restriction base="xs:string">
+                                        <xs:length value="36"/>
+                                      </xs:restriction>
+                                    </xs:simpleType>
+                                  </xs:attribute>
+                                </xs:complexType>
                               </xs:element>
                             </xs:sequence>
+                            <xs:attribute name="НомерЗуба" use="optional">
+                              <xs:annotation>
+                                <xs:documentation>Номер зуба</xs:documentation>
+                              </xs:annotation>
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:minLength value="1"/>
+                                  <xs:maxLength value="255"/>
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:attribute>
                             <xs:attribute name="Класс" use="optional">
                               <xs:annotation>
                                 <xs:documentation>
@@ -296,7 +326,7 @@
                               <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                   <xs:minLength value="1"/>
-                                  <xs:maxLength value="255"/>
+                                  <xs:maxLength value="150"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
@@ -334,6 +364,11 @@
                                   </xs:restriction>
                                 </xs:simpleType>
                               </xs:element>
+                              <xs:element name="ЦенаСкидка" type="СведЦенаСкидкаТип" minOccurs="1" maxOccurs="1">
+                                <xs:annotation>
+                                  <xs:documentation>Ценовые условия</xs:documentation>
+                                </xs:annotation>
+                              </xs:element>
                               <xs:element name="ДопОпис" minOccurs="0">
                                 <xs:annotation>
                                   <xs:documentation>Описание объема</xs:documentation>
@@ -357,11 +392,6 @@
                                     </xs:simpleType>
                                   </xs:attribute>
                                 </xs:complexType>
-                              </xs:element>
-                              <xs:element name="ЦенаСкидка" type="СведЦенаСкидкаТип" minOccurs="1" maxOccurs="1">
-                                <xs:annotation>
-                                  <xs:documentation>Ценовые условия</xs:documentation>
-                                </xs:annotation>
                               </xs:element>
                             </xs:sequence>
                             <xs:attribute name="КолМедУсл" use="required">
@@ -402,7 +432,7 @@
                               <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                   <xs:minLength value="1"/>
-                                  <xs:maxLength value="1"/>
+                                  <xs:maxLength value="50"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
@@ -456,10 +486,29 @@
                                   <xs:documentation>Ценовые условия, в том числе сумма акциза</xs:documentation>
                                 </xs:annotation>
                               </xs:element>
-                              <xs:element name="Акциз" type="СумАкцизТип" minOccurs="0" maxOccurs="1">
+                              <xs:element name="ДопОпис" minOccurs="0">
                                 <xs:annotation>
-                                  <xs:documentation>В том числе сумма акциза</xs:documentation>
+                                  <xs:documentation>Описание объема</xs:documentation>
                                 </xs:annotation>
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ТекстИнф" type="ТекстИнфТип" minOccurs="0" maxOccurs="unbounded">
+                                      <xs:annotation>
+                                        <xs:documentation>Текстовая информация</xs:documentation>
+                                      </xs:annotation>
+                                    </xs:element>
+                                  </xs:sequence>
+                                  <xs:attribute name="ИдФайлИнфПол" use="optional">
+                                    <xs:annotation>
+                                      <xs:documentation>Идентификатор  файла информационного поля</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:simpleType>
+                                      <xs:restriction base="xs:string">
+                                        <xs:length value="36"/>
+                                      </xs:restriction>
+                                    </xs:simpleType>
+                                  </xs:attribute>
+                                </xs:complexType>
                               </xs:element>
                             </xs:sequence>
                             <xs:attribute name="Класс" use="optional">
@@ -482,7 +531,7 @@
                               <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                   <xs:minLength value="1"/>
-                                  <xs:maxLength value="255"/>
+                                  <xs:maxLength value="150"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
@@ -703,6 +752,13 @@
                 </xs:restriction>
               </xs:simpleType>
             </xs:attribute>
+            <xs:attribute name="Валюта" type="ОКВТип" use="required">
+              <xs:annotation>
+                <xs:documentation>
+                  Валюта взаиморасчетов
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
@@ -739,13 +795,6 @@
             <xs:minLength value="1"/>
           </xs:restriction>
         </xs:simpleType>
-      </xs:attribute>
-      <xs:attribute name="Валюта" type="ОКВТип" use="required">
-        <xs:annotation>
-          <xs:documentation>
-            Валюта взаиморасчетов
-          </xs:documentation>
-        </xs:annotation>
       </xs:attribute>
     </xs:complexType>
   </xs:element>
@@ -982,7 +1031,7 @@
     </xs:attribute>
     <xs:attribute name="ДефИННФЛ" use="optional">
       <xs:annotation>
-        <xs:documentation>ИНН при составлении документа с Функция=СЧФ или Функция=СЧФДОП налоговым агентом, указанным в пунктах 2 и 3 статьи 161 НК РФ, в части информации о продавце/грузоотправителе</xs:documentation>
+        <xs:documentation>ИНН</xs:documentation>
       </xs:annotation>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -1092,7 +1141,7 @@
                 </xs:attribute>
                 <xs:attribute name="ДефИННЮЛ" use="optional">
                   <xs:annotation>
-                    <xs:documentation>ИНН при составлении документа с Функция=СЧФ или Функция=СЧФДОП налоговым агентом, указанным в пунктах 2 и 3 статьи 161 НК РФ, в части информации о продавце/грузоотправителе/грузополучателе или для документа с Функция=СЧФ, выставляемом при получении оплаты, частичной оплаты в счет предстоящих поставок товаров (выполнения работ, оказания услуг), передачи имущественных прав, в части информации о грузоотправителе/грузополучателе</xs:documentation>
+                    <xs:documentation>ИНН</xs:documentation>
                   </xs:annotation>
                   <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -1322,35 +1371,6 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-  </xs:complexType>
-  <xs:complexType name="СумАкцизТип">
-    <xs:annotation>
-      <xs:documentation>Сумма акциза</xs:documentation>
-    </xs:annotation>
-    <xs:choice>
-      <xs:element name="СумАкциз">
-        <xs:annotation>
-          <xs:documentation>Сумма акциза</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:decimal">
-            <xs:totalDigits value="19"/>
-            <xs:fractionDigits value="2"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="БезАкциз">
-        <xs:annotation>
-          <xs:documentation>Без акциза</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:length value="10"/>
-            <xs:enumeration value="без акциза"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-    </xs:choice>
   </xs:complexType>
   <xs:complexType name="СумНДСТип">
     <xs:annotation>
