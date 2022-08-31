@@ -133,7 +133,7 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="ОснДок" type="РеквДокТип" minOccurs="0">
+              <xs:element name="ОснДок" type="РеквДокТип" minOccurs="1">
                 <xs:annotation>
                   <xs:documentation>Документ к которому приложен реестр</xs:documentation>
                 </xs:annotation>
@@ -154,7 +154,7 @@
                         <xs:documentation>Сведения о документе, удостоверяющего личность</xs:documentation>
                       </xs:annotation>
                     </xs:element>
-                    <xs:element name="ОснДляОпл" minOccurs="0">
+                    <xs:element name="ОснДляОпл" minOccurs="1">
                       <xs:annotation>
                         <xs:documentation>Основание для оплаты. 1 - ГП; 2 - программа</xs:documentation>
                       </xs:annotation>
@@ -398,7 +398,7 @@
                                 <xs:documentation>Дата начала оказания услуги</xs:documentation>
                               </xs:annotation>
                             </xs:attribute>
-                              <xs:attribute name="УсловОказ" use="optional">
+                              <xs:attribute name="УсловОказ" use="required">
                                 <xs:annotation>
                                   <xs:documentation>Условия оказания медицинской помощи. Принимает значение в соответствии с НСИ «Условия оказания медицинской помощи» 1.2.643.5.1.13.13.99.2.322</xs:documentation>
                                 </xs:annotation>
@@ -430,7 +430,7 @@
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
-                            <xs:attribute name="Источник" use="optional">
+                            <xs:attribute name="Источник" use="required">
                               <xs:annotation>
                                 <xs:documentation>Источник кодов и наименования услуги</xs:documentation>
                               </xs:annotation>
@@ -1138,7 +1138,7 @@
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:attribute>
-                <xs:attribute name="ИННЮЛ" type="ИННЮЛТип" use="optional">
+                <xs:attribute name="ИННЮЛ" type="ИННЮЛТип" use="required">
                   <xs:annotation>
                     <xs:documentation>ИНН</xs:documentation>
                   </xs:annotation>
@@ -1154,7 +1154,7 @@
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:attribute>
-                <xs:attribute name="КПП" type="КППТип" use="optional">
+                <xs:attribute name="КПП" type="КППТип" use="required">
                   <xs:annotation>
                     <xs:documentation>КПП</xs:documentation>
                   </xs:annotation>
@@ -1326,7 +1326,7 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="НаимДок" use="optional">
+    <xs:attribute name="НаимДок" use="required">
       <xs:annotation>
         <xs:documentation>Наименование документа</xs:documentation>
       </xs:annotation>
@@ -1337,7 +1337,7 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="НомерДок" use="optional">
+    <xs:attribute name="НомерДок" use="required">
       <xs:annotation>
         <xs:documentation>Номер документа</xs:documentation>
       </xs:annotation>
@@ -1348,12 +1348,12 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="ДатаДок" type="ДатаТип" use="optional">
+    <xs:attribute name="ДатаДок" type="ДатаТип" use="required">
       <xs:annotation>
         <xs:documentation>Дата документа</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="ИдДок" use="optional">
+    <xs:attribute name="ИдДок" use="required">
       <xs:annotation>
         <xs:documentation>Идентификатор файла документа (в том числе регистрационный номер, если документ / сведения о таком документе содержатся в государственных информационных системах)</xs:documentation>
       </xs:annotation>
@@ -1589,7 +1589,7 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="НаимТов" use="optional">
+    <xs:attribute name="НаимТов" use="required">
       <xs:annotation>
         <xs:documentation>Наименование товара (описание выполненных работ, оказанных услуг), имущественных прав</xs:documentation>
       </xs:annotation>
@@ -1632,7 +1632,7 @@
         </xs:simpleType>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="Код" use="required">
+    <xs:attribute name="Код" use="optional">
       <xs:annotation>
         <xs:documentation>
           Код медицинской услуги/ Справочник: Прейскурант МО или
@@ -1753,7 +1753,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="ПроцСкидка" minOccurs="0" maxOccurs="1">
+      <xs:element name="ПроцСкидка" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Процент скидки</xs:documentation>
         </xs:annotation>

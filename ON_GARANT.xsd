@@ -157,6 +157,21 @@
                             <xs:documentation>Информация о причине обращения</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="СведПредставит" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>
+                                    Сведения о представителе физического лица. Заполняется при наличии сопровождающего лица. Обязателен при указании значения «1» в элементе ПрФормДок
+                                  </xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:minLength value="1"/>
+                                    <xs:maxLength value="1000"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:element>
+                            </xs:sequence>
                             <xs:attribute name="КодДиаг" use="required">
                               <xs:annotation>
                                 <xs:documentation>Код диагноза в соответствии международным классификатором болезней (МКБ-10)</xs:documentation>
@@ -359,7 +374,7 @@
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
-                            <xs:attribute name="Источник" use="optional">
+                            <xs:attribute name="Источник" use="required">
                               <xs:annotation>
                                 <xs:documentation>Источник кодов и наименования услуги</xs:documentation>
                               </xs:annotation>
@@ -375,7 +390,7 @@
                       </xs:complexType>
                     </xs:element>
                   </xs:sequence>
-                  <xs:attribute name="ЛимитОтвМедУсл" use="optional">
+                  <xs:attribute name="ЛимитОтвМедУсл" use="required">
                     <xs:annotation>
                       <xs:documentation>
                         Лимит ответственности страховой организации по стоимости согласованного объема лечения на каждое застрахованное лицо (медицинские услуги)
@@ -741,7 +756,10 @@
             </xs:attribute>
             <xs:attribute name="НомерДок" use="required">
               <xs:annotation>
-                <xs:documentation>Номер документа</xs:documentation>
+                <xs:documentation>
+                  Номер документа. При отсутствии указывается: «без номера».
+                  Регистрационный номер письма в системе делопроизводства составителя файла обмена информации страховой организации
+                </xs:documentation>
               </xs:annotation>
               <xs:simpleType>
                 <xs:restriction base="xs:string">
@@ -752,7 +770,7 @@
             </xs:attribute>
             <xs:attribute name="ДатаДок" type="ДатаТип" use="required">
               <xs:annotation>
-                <xs:documentation>Дата документа</xs:documentation>
+                <xs:documentation>Дата документа. Указывается дата присвоения регистрационного номера.</xs:documentation>
               </xs:annotation>
             </xs:attribute>
             <xs:attribute name="ДатаНач" type="ДатаТип" use="required">
@@ -1152,7 +1170,7 @@
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:attribute>
-                <xs:attribute name="ИННЮЛ" type="ИННЮЛТип" use="optional">
+                <xs:attribute name="ИННЮЛ" type="ИННЮЛТип" use="required">
                   <xs:annotation>
                     <xs:documentation>ИНН</xs:documentation>
                   </xs:annotation>
@@ -1168,7 +1186,7 @@
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:attribute>
-                <xs:attribute name="КПП" type="КППТип" use="optional">
+                <xs:attribute name="КПП" type="КППТип" use="required">
                   <xs:annotation>
                     <xs:documentation>КПП</xs:documentation>
                   </xs:annotation>
@@ -1340,7 +1358,7 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="НаимДок" use="optional">
+    <xs:attribute name="НаимДок" use="required">
       <xs:annotation>
         <xs:documentation>Наименование документа</xs:documentation>
       </xs:annotation>
@@ -1351,7 +1369,7 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="НомерДок" use="optional">
+    <xs:attribute name="НомерДок" use="required">
       <xs:annotation>
         <xs:documentation>Номер документа</xs:documentation>
       </xs:annotation>
@@ -1362,12 +1380,12 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="ДатаДок" type="ДатаТип" use="optional">
+    <xs:attribute name="ДатаДок" type="ДатаТип" use="required">
       <xs:annotation>
         <xs:documentation>Дата документа</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="ИдДок" use="optional">
+    <xs:attribute name="ИдДок" use="required">
       <xs:annotation>
         <xs:documentation>Идентификатор файла документа (в том числе регистрационный номер, если документ / сведения о таком документе содержатся в государственных информационных системах)</xs:documentation>
       </xs:annotation>
@@ -1573,7 +1591,7 @@
           <xs:documentation>Сведения о работодателе</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ДатаРожд" type="ДатаТип" minOccurs="0">
+      <xs:element name="ДатаРожд" type="ДатаТип" minOccurs="1">
         <xs:annotation>
           <xs:documentation>Дата рождения</xs:documentation>
         </xs:annotation>
@@ -1627,7 +1645,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="СерНомДМС" minOccurs="0">
+      <xs:element name="СерНомДМС" minOccurs="1">
         <xs:annotation>
           <xs:documentation>Серия, номер полиса ДМС. Обязателен при указании значения «1» в элементе ПрФормДок</xs:documentation>
         </xs:annotation>
@@ -1677,19 +1695,6 @@
           <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
             <xs:maxLength value="150"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="СведПредставит" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>
-            Сведения о представителе физического лица. Заполняется при наличии сопровождающего лица. Обязателен при указании значения «1» в элементе ПрФормДок
-          </xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:minLength value="1"/>
-            <xs:maxLength value="1000"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1812,7 +1817,7 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="НаимТов" use="optional">
+    <xs:attribute name="НаимТов" use="required">
       <xs:annotation>
         <xs:documentation>Наименование товара (описание выполненных работ, оказанных услуг), имущественных прав</xs:documentation>
       </xs:annotation>
@@ -1855,7 +1860,7 @@
         </xs:simpleType>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="Код" use="required">
+    <xs:attribute name="Код" use="optional">
       <xs:annotation>
         <xs:documentation>
           Код медицинской услуги/ Справочник: Прейскурант МО или

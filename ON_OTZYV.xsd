@@ -802,7 +802,7 @@
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:attribute>
-                <xs:attribute name="ИННЮЛ" type="ИННЮЛТип" use="optional">
+                <xs:attribute name="ИННЮЛ" type="ИННЮЛТип" use="required">
                   <xs:annotation>
                     <xs:documentation>ИНН</xs:documentation>
                   </xs:annotation>
@@ -818,7 +818,7 @@
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:attribute>
-                <xs:attribute name="КПП" type="КППТип" use="optional">
+                <xs:attribute name="КПП" type="КППТип" use="required">
                   <xs:annotation>
                     <xs:documentation>КПП</xs:documentation>
                   </xs:annotation>
@@ -990,7 +990,7 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="НаимДок" use="optional">
+    <xs:attribute name="НаимДок" use="required">
       <xs:annotation>
         <xs:documentation>Наименование документа</xs:documentation>
       </xs:annotation>
@@ -1001,7 +1001,7 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="НомерДок" use="optional">
+    <xs:attribute name="НомерДок" use="required">
       <xs:annotation>
         <xs:documentation>Номер документа</xs:documentation>
       </xs:annotation>
@@ -1012,12 +1012,12 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="ДатаДок" type="ДатаТип" use="optional">
+    <xs:attribute name="ДатаДок" type="ДатаТип" use="required">
       <xs:annotation>
         <xs:documentation>Дата документа</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="ИдДок" use="optional">
+    <xs:attribute name="ИдДок" use="required">
       <xs:annotation>
         <xs:documentation>Идентификатор файла документа (в том числе регистрационный номер, если документ / сведения о таком документе содержатся в государственных информационных системах)</xs:documentation>
       </xs:annotation>

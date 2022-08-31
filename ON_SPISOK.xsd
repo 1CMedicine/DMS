@@ -197,17 +197,17 @@
                           </xs:complexType>
                         </xs:element>
                       </xs:sequence>
-                      <xs:attribute name="НачОбсл" type="ДатаТип" use="required">
-                        <xs:annotation>
-                          <xs:documentation>Дата начала обслуживания</xs:documentation>
-                        </xs:annotation>
-                      </xs:attribute>
                       <xs:attribute name="ДатаДМСОткрепл" type="ДатаТип" use="optional">
                         <xs:annotation>
                           <xs:documentation>Дата досрочного открепления от МО, от программы ДМС</xs:documentation>
                         </xs:annotation>
                       </xs:attribute>
-                      <xs:attribute name="ОкончОбсл" type="ДатаТип" use="optional">
+                      <xs:attribute name="НачОбсл" type="ДатаТип" use="required">
+                        <xs:annotation>
+                          <xs:documentation>Дата начала обслуживания</xs:documentation>
+                        </xs:annotation>
+                      </xs:attribute>
+                      <xs:attribute name="ОкончОбсл" type="ДатаТип" use="required">
                         <xs:annotation>
                           <xs:documentation>Дата окончания обслуживания</xs:documentation>
                         </xs:annotation>
@@ -234,7 +234,7 @@
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:attribute>
-                      <xs:attribute name="ТипОпл" use="required">
+                      <xs:attribute name="ТипОпл" use="optional">
                         <xs:annotation>
                           <xs:documentation>
                             Тип опалаты. Принимает одно из следующих значений:
@@ -263,7 +263,7 @@
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:attribute>
-                      <xs:attribute name="Валюта" type="ОКВТип" use="required">
+                      <xs:attribute name="Валюта" type="ОКВТип" use="optional">
                         <xs:annotation>
                           <xs:documentation>
                             Код валюты по лимиту ответственности страховой организации по стоимости согласованного объема лечения на каждое застрахованное лицо
@@ -906,7 +906,7 @@
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:attribute>
-                <xs:attribute name="ИННЮЛ" type="ИННЮЛТип" use="optional">
+                <xs:attribute name="ИННЮЛ" type="ИННЮЛТип" use="required">
                   <xs:annotation>
                     <xs:documentation>ИНН</xs:documentation>
                   </xs:annotation>
@@ -922,7 +922,7 @@
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:attribute>
-                <xs:attribute name="КПП" type="КППТип" use="optional">
+                <xs:attribute name="КПП" type="КППТип" use="required">
                   <xs:annotation>
                     <xs:documentation>КПП</xs:documentation>
                   </xs:annotation>
@@ -1094,7 +1094,7 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="НаимДок" use="optional">
+    <xs:attribute name="НаимДок" use="required">
       <xs:annotation>
         <xs:documentation>Наименование документа</xs:documentation>
       </xs:annotation>
@@ -1105,7 +1105,7 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="НомерДок" use="optional">
+    <xs:attribute name="НомерДок" use="required">
       <xs:annotation>
         <xs:documentation>Номер документа</xs:documentation>
       </xs:annotation>
@@ -1116,12 +1116,12 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
-    <xs:attribute name="ДатаДок" type="ДатаТип" use="optional">
+    <xs:attribute name="ДатаДок" type="ДатаТип" use="required">
       <xs:annotation>
         <xs:documentation>Дата документа</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="ИдДок" use="optional">
+    <xs:attribute name="ИдДок" use="required">
       <xs:annotation>
         <xs:documentation>Идентификатор файла документа (в том числе регистрационный номер, если документ / сведения о таком документе содержатся в государственных информационных системах)</xs:documentation>
       </xs:annotation>
@@ -1256,7 +1256,7 @@
           <xs:documentation>Сведения о работодателе</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ДатаРожд" type="ДатаТип" minOccurs="0">
+      <xs:element name="ДатаРожд" type="ДатаТип" minOccurs="1">
         <xs:annotation>
           <xs:documentation>Дата рождения</xs:documentation>
         </xs:annotation>
@@ -1310,7 +1310,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="СерНомДМС" minOccurs="0">
+      <xs:element name="СерНомДМС" minOccurs="1">
         <xs:annotation>
           <xs:documentation>Серия, номер полиса ДМС. Обязателен при указании значения «1» в элементе ПрФормДок</xs:documentation>
         </xs:annotation>
@@ -1360,19 +1360,6 @@
           <xs:restriction base="xs:string">
             <xs:minLength value="1"/>
             <xs:maxLength value="150"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="СведПредставит" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>
-            Сведения о представителе физического лица. Заполняется при наличии сопровождающего лица. Обязателен при указании значения «1» в элементе ПрФормДок
-          </xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:minLength value="1"/>
-            <xs:maxLength value="1000"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>

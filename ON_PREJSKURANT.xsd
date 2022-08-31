@@ -121,7 +121,7 @@
                   <xs:documentation>Сведения о дополнительном соглашении</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="ИнфМедПомощи" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="ИнфМедПомощи" minOccurs="1" maxOccurs="unbounded">
                 <xs:annotation>
                   <xs:documentation>
                     Медицинские и сервисные услуги, подлежащие оплате
@@ -319,7 +319,7 @@
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
-                            <xs:attribute name="Источник" use="optional">
+                            <xs:attribute name="Источник" use="required">
                               <xs:annotation>
                                 <xs:documentation>Источник кодов и наименования услуги</xs:documentation>
                               </xs:annotation>
@@ -470,7 +470,7 @@
                         <xs:complexContent>
                           <xs:extension base="СведТовТип">
                             <xs:sequence>
-                              <xs:element name="УсловОказМедПом" minOccurs="0" maxOccurs="unbounded">
+                              <xs:element name="УсловОказМедПом" minOccurs="1" maxOccurs="unbounded">
                                 <xs:annotation>
                                   <xs:documentation>Условия оказания медицинской помощи. Принимает значение в соответствии с НСИ «Условия оказания медицинской помощи» 1.2.643.5.1.13.13.99.2.322</xs:documentation>
                                 </xs:annotation>
@@ -524,7 +524,7 @@
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
-                            <xs:attribute name="Источник" use="optional">
+                            <xs:attribute name="Источник" use="required">
                               <xs:annotation>
                                 <xs:documentation>Источник кодов и наименования услуги</xs:documentation>
                               </xs:annotation>
@@ -532,6 +532,17 @@
                                 <xs:restriction base="xs:string">
                                   <xs:minLength value="1"/>
                                   <xs:maxLength value="150"/>
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:attribute>
+                            <xs:attribute name="МестоОказания" use="required">
+                              <xs:annotation>
+                                <xs:documentation>Тип места оказания медицинской помощи. OID справочника 1.2.643.5.1.13.13.11.1008 ФНСИ «Место оказания медицинской помощи»</xs:documentation>
+                              </xs:annotation>
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:minLength value="1"/>
+                                  <xs:maxLength value="20"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
@@ -735,22 +746,10 @@
                 <xs:documentation>Дата начала действия документа</xs:documentation>
               </xs:annotation>
             </xs:attribute>
-            <xs:attribute name="ДатаОконч" type="ДатаТип" use="required">
+            <xs:attribute name="ДатаОконч" type="ДатаТип" use="optional">
               <xs:annotation>
                 <xs:documentation>Дата окончания действия документа</xs:documentation>
               </xs:annotation>
-            </xs:attribute>
-            <xs:attribute name="ПризДок" use="required">
-              <xs:annotation>
-                <xs:documentation>Признак документа. 1 - основное, 2 - дополнительное</xs:documentation>
-              </xs:annotation>
-              <xs:simpleType>
-                <xs:restriction base="xs:string">
-                  <xs:length value="1"/>
-                  <xs:enumeration value="1"/>
-                  <xs:enumeration value="2"/>
-                </xs:restriction>
-              </xs:simpleType>
             </xs:attribute>
             <xs:attribute name="Валюта" type="ОКВТип" use="required">
               <xs:annotation>
@@ -1134,7 +1133,7 @@
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:attribute>
-                <xs:attribute name="ИННЮЛ" type="ИННЮЛТип" use="optional">
+                <xs:attribute name="ИННЮЛ" type="ИННЮЛТип" use="required">
                   <xs:annotation>
                     <xs:documentation>ИНН</xs:documentation>
                   </xs:annotation>
@@ -1150,7 +1149,7 @@
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:attribute>
-                <xs:attribute name="КПП" type="КППТип" use="optional">
+                <xs:attribute name="КПП" type="КППТип" use="required">
                   <xs:annotation>
                     <xs:documentation>КПП</xs:documentation>
                   </xs:annotation>
@@ -1531,7 +1530,7 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="НаимТов" use="optional">
+    <xs:attribute name="НаимТов" use="required">
       <xs:annotation>
         <xs:documentation>Наименование товара (описание выполненных работ, оказанных услуг), имущественных прав</xs:documentation>
       </xs:annotation>
@@ -1574,7 +1573,7 @@
         </xs:simpleType>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="Код" use="required">
+    <xs:attribute name="Код" use="optional">
       <xs:annotation>
         <xs:documentation>
           Код медицинской услуги/ Справочник: Прейскурант МО или
