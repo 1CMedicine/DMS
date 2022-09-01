@@ -204,7 +204,7 @@
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
-                    <xs:element name="ДатаРожд" type="ДатаТип" minOccurs="0">
+                    <xs:element name="ДатаРожд" type="ДатаТип" minOccurs="1">
                       <xs:annotation>
                         <xs:documentation>Дата формирования файла обмена заказа (заявки)</xs:documentation>
                       </xs:annotation>
@@ -237,7 +237,7 @@
                         </xs:restriction>
                       </xs:simpleType>
                     </xs:element>
-                    <xs:element name="СерНомДМС" minOccurs="0">
+                    <xs:element name="СерНомДМС" minOccurs="1">
                       <xs:annotation>
                         <xs:documentation>Серия, номер полиса ДМС. Обязателен при указании значения «1» в элементе ПрФормДок</xs:documentation>
                       </xs:annotation>
@@ -388,6 +388,17 @@
                                 </xs:annotation>
                               </xs:element>
                             </xs:sequence>
+                            <xs:attribute name="КодУсл" use="required">
+                              <xs:annotation>
+                                <xs:documentation>Код сервисной услуги/товара</xs:documentation>
+                              </xs:annotation>
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:minLength value="1"/>
+                                  <xs:maxLength value="100"/>
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:attribute>
                             <xs:attribute name="ДатаНач" type="ДатаТип" use="required">
                               <xs:annotation>
                                 <xs:documentation>Дата начала оказания услуги</xs:documentation>
@@ -1560,17 +1571,6 @@
               </xs:restriction>
             </xs:simpleType>
           </xs:attribute>
-          <xs:attribute name="КодТов" use="optional">
-            <xs:annotation>
-              <xs:documentation>Код товара</xs:documentation>
-            </xs:annotation>
-            <xs:simpleType>
-              <xs:restriction base="xs:string">
-                <xs:minLength value="1"/>
-                <xs:maxLength value="100"/>
-              </xs:restriction>
-            </xs:simpleType>
-          </xs:attribute>
           <xs:attribute name="КодКат" use="optional">
             <xs:annotation>
               <xs:documentation>Код каталога</xs:documentation>
@@ -1620,7 +1620,7 @@
   </xs:complexType>
   <xs:complexType name="МедУслТип">
     <xs:sequence>
-      <xs:element name="УсловОказМедПом" minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="УсловОказМедПом" minOccurs="1" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>Условия оказания медицинской помощи. Принимает значение в соответствии с НСИ «Условия оказания медицинской помощи» 1.2.643.5.1.13.13.99.2.322</xs:documentation>
         </xs:annotation>
@@ -1632,7 +1632,7 @@
         </xs:simpleType>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="Код" use="optional">
+    <xs:attribute name="Код" use="required">
       <xs:annotation>
         <xs:documentation>
           Код медицинской услуги/ Справочник: Прейскурант МО или
