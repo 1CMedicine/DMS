@@ -931,7 +931,7 @@
             </xs:element>
             <xs:element name="СвИнНеУч">
               <xs:annotation>
-                <xs:documentation>Сведения об иностранном лице, не состоящем на учете в налоговых органах</xs:documentation>
+                <xs:documentation>Сведения об иностранном лице, не состоящем на учете в налоговых органах в качестве налогоплательщика</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:attribute name="НаимОрг" use="required">
