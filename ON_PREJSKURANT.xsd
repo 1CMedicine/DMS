@@ -98,12 +98,12 @@
 								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="СведМедОрг" type="УчастникТип" minOccurs="1" maxOccurs="1">
+										<xs:element name="СведМедОрг" type="УчастникДМСТип" minOccurs="1" maxOccurs="1">
 											<xs:annotation>
 												<xs:documentation>Сведения о медицинской организации</xs:documentation>
 											</xs:annotation>
 										</xs:element>
-										<xs:element name="СведПолуч" type="УчастникТип" minOccurs="1" maxOccurs="1">
+										<xs:element name="СведПолуч" type="УчастникДМСТип" minOccurs="1" maxOccurs="1">
 											<xs:annotation>
 												<xs:documentation>Сведения о получателе прейскуранта</xs:documentation>
 											</xs:annotation>
@@ -111,12 +111,12 @@
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
-							<xs:element name="СведОДог" type="РеквДокТип" minOccurs="0">
+							<xs:element name="СведОДог" type="РеквДокДМСТип" minOccurs="0">
 								<xs:annotation>
 									<xs:documentation>Сведения об основном документе</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="ДопСогл" type="РеквДокТип" minOccurs="0">
+							<xs:element name="ДопСогл" type="РеквДокДМСТип" minOccurs="0">
 								<xs:annotation>
 									<xs:documentation>Сведения о дополнительном соглашении</xs:documentation>
 								</xs:annotation>
@@ -252,7 +252,7 @@
 											</xs:annotation>
 											<xs:complexType>
 												<xs:complexContent>
-													<xs:extension base="СведТовТип">
+													<xs:extension base="СведТов2Тип">
 														<xs:sequence>
                               <xs:element name="МестоОказанияМО" minOccurs="0" maxOccurs="unbounded">
                                 <xs:annotation>
@@ -490,7 +490,7 @@
                       </xs:annotation>
                       <xs:complexType>
                         <xs:complexContent>
-                          <xs:extension base="СведТовТип">
+                          <xs:extension base="СведТов2Тип">
                             <xs:sequence>
                               <xs:element name="МестоОказанияМО" minOccurs="0" maxOccurs="unbounded">
                                 <xs:annotation>
@@ -1145,7 +1145,7 @@
 			</xs:simpleType>
 		</xs:attribute>
 	</xs:complexType>
-	<xs:complexType name="УчастникТип">
+	<xs:complexType name="УчастникДМСТип">
 		<xs:annotation>
 			<xs:documentation>Сведения об участнике факта хозяйственной жизни</xs:documentation>
 		</xs:annotation>
@@ -1354,7 +1354,7 @@
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
-	<xs:complexType name="РеквДокТип">
+	<xs:complexType name="РеквДокДМСТип">
 		<xs:annotation>
 			<xs:documentation>Реквизиты документа</xs:documentation>
 		</xs:annotation>
@@ -1457,7 +1457,7 @@
 			</xs:element>
 		</xs:choice>
 	</xs:complexType>
-	<xs:complexType name="СведТовТип">
+	<xs:complexType name="СведТов2Тип">
 		<xs:sequence>
 			<xs:element name="ДопСведТов" minOccurs="0">
 				<xs:annotation>

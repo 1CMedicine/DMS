@@ -133,7 +133,7 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="ОснДок" type="РеквДокТип" minOccurs="1">
+              <xs:element name="ОснДок" type="РеквДокДМСТип" minOccurs="1">
                 <xs:annotation>
                   <xs:documentation>Документ к которому приложен реестр</xs:documentation>
                 </xs:annotation>
@@ -370,7 +370,7 @@
                       </xs:annotation>
                       <xs:complexType>
                         <xs:complexContent>
-                          <xs:extension base="СведТовТип">
+                          <xs:extension base="СведТов2Тип">
                             <xs:sequence>
                               <xs:element name="Диагноз" type="ДиагнозТип" minOccurs="0" maxOccurs="unbounded">
                                 <xs:annotation>
@@ -1326,7 +1326,7 @@
       </xs:element>
     </xs:choice>
   </xs:complexType>
-  <xs:complexType name="РеквДокТип">
+  <xs:complexType name="РеквДокДМСТип">
     <xs:annotation>
       <xs:documentation>Реквизиты документа</xs:documentation>
     </xs:annotation>
@@ -1483,7 +1483,7 @@
       </xs:simpleType>
     </xs:attribute>
   </xs:complexType>
-  <xs:complexType name="СведТовТип">
+  <xs:complexType name="СведТов2Тип">
     <xs:sequence>
       <xs:element name="ДопСведТов" minOccurs="0">
         <xs:annotation>
