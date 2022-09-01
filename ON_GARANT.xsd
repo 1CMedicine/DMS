@@ -99,12 +99,12 @@
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="СведОтправОрг" type="УчастникТип" minOccurs="1" maxOccurs="1">
+                    <xs:element name="СведОтправОрг" type="УчастникДМСТип" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
                         <xs:documentation>Сведения об организации-отправителе</xs:documentation>
                       </xs:annotation>
                     </xs:element>
-                    <xs:element name="СведПолуч" type="УчастникТип" minOccurs="1" maxOccurs="1">
+                    <xs:element name="СведПолуч" type="УчастникДМСТип" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
                         <xs:documentation>Сведения о получателе гарантийного письма</xs:documentation>
                       </xs:annotation>
@@ -1159,7 +1159,7 @@
       </xs:simpleType>
     </xs:attribute>
   </xs:complexType>
-  <xs:complexType name="УчастникТип">
+  <xs:complexType name="УчастникДМСТип">
     <xs:annotation>
       <xs:documentation>Сведения об участнике факта хозяйственной жизни</xs:documentation>
     </xs:annotation>
