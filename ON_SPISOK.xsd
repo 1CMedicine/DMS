@@ -931,7 +931,7 @@
             </xs:element>
             <xs:element name="СвИнНеУч">
               <xs:annotation>
-                <xs:documentation>Сведения об иностранном лице, не состоящем на учете в налоговых органах в качестве налогоплательщика</xs:documentation>
+                <xs:documentation>Сведения об иностранном лице, не состоящем на учете в налоговых органах</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:attribute name="НаимОрг" use="required">
@@ -1121,7 +1121,7 @@
         <xs:documentation>Дата документа</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="ИдДок" use="required">
+    <xs:attribute name="ИдДок" use="optional">
       <xs:annotation>
         <xs:documentation>Идентификатор файла документа (в том числе регистрационный номер, если документ / сведения о таком документе содержатся в государственных информационных системах)</xs:documentation>
       </xs:annotation>
@@ -1448,7 +1448,7 @@
   </xs:simpleType>
   <xs:simpleType name="СПДУЛТип">
     <xs:annotation>
-      <xs:documentation>Коды Справочника видов документов, удостоверяющих личность налогоплательщика</xs:documentation>
+      <xs:documentation>Коды Справочника видов документов, удостоверяющих личность</xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:length value="2"/>

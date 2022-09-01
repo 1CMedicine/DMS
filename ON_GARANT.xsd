@@ -1406,7 +1406,7 @@
         <xs:documentation>Дата документа</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="ИдДок" use="required">
+    <xs:attribute name="ИдДок" use="optional">
       <xs:annotation>
         <xs:documentation>Идентификатор файла документа (в том числе регистрационный номер, если документ / сведения о таком документе содержатся в государственных информационных системах)</xs:documentation>
       </xs:annotation>
@@ -1991,7 +1991,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="ПроцСкидка" minOccurs="0" maxOccurs="1">
+      <xs:element name="ПроцСкидка" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Процент скидки</xs:documentation>
         </xs:annotation>
@@ -2003,7 +2003,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="СумСкидка" minOccurs="0" maxOccurs="1">
+      <xs:element name="СумСкидка" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Сумма скидки</xs:documentation>
         </xs:annotation>

@@ -1365,7 +1365,7 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="НаимДок" use="optional">
+		<xs:attribute name="НаимДок" use="required">
 			<xs:annotation>
 				<xs:documentation>Наименование документа</xs:documentation>
 			</xs:annotation>
@@ -1376,7 +1376,7 @@
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:attribute>
-		<xs:attribute name="НомерДок" use="optional">
+		<xs:attribute name="НомерДок" use="required">
 			<xs:annotation>
 				<xs:documentation>Номер документа</xs:documentation>
 			</xs:annotation>
@@ -1387,7 +1387,7 @@
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:attribute>
-		<xs:attribute name="ДатаДок" type="ДатаТип" use="optional">
+		<xs:attribute name="ДатаДок" type="ДатаТип" use="required">
 			<xs:annotation>
 				<xs:documentation>Дата документа</xs:documentation>
 			</xs:annotation>
@@ -1639,7 +1639,7 @@
 				<xs:documentation>
           Источник кодов и наименований медицинской услуги.
           1 - номенклатура медицинских услуг (1.2.643.5.1.13.13.11.1070)
-          2 - Внутренняя номенклатура (разработанная в МО).
+          2 - внутренняя номенклатура (разработанная в МО).
         </xs:documentation>
 			</xs:annotation>
 			<xs:simpleType>
@@ -1727,7 +1727,7 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="ПроцСкидка" minOccurs="0" maxOccurs="1">
+			<xs:element name="ПроцСкидка" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Процент скидки</xs:documentation>
 				</xs:annotation>
@@ -1739,7 +1739,7 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="СумСкидка" minOccurs="0" maxOccurs="1">
+			<xs:element name="СумСкидка" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Сумма скидки</xs:documentation>
 				</xs:annotation>
