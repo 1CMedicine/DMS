@@ -146,32 +146,32 @@
               </xs:element>
               <xs:element name="СведФизЛиц" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
-                  <xs:documentation>Сведения о физическом лице (группе физических лиц), на которых распространяются обязательства</xs:documentation>
+                  <xs:documentation>
+                    Сведения о физическом лице (группе физических лиц), на которых распространяются обязательства. Указывается при указании значения «1» в элементе ПрФормДок.
+                  </xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:complexContent>
                     <xs:extension base="СведФизЛицТип">
                       <xs:sequence>
+                        <xs:element name="СведПредставит" minOccurs="0">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Сведения о представителе физического лица. Заполняется при наличии сопровождающего лица. Обязателен при указании значения «1» в элементе ПрФормДок
+                            </xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:minLength value="1"/>
+                              <xs:maxLength value="255"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
                         <xs:element name="ИнфоПричОбращ" minOccurs="0" maxOccurs="unbounded">
                           <xs:annotation>
                             <xs:documentation>Информация о причине обращения</xs:documentation>
                           </xs:annotation>
                           <xs:complexType>
-                            <xs:sequence>
-                              <xs:element name="СведПредставит" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>
-                                    Сведения о представителе физического лица. Заполняется при наличии сопровождающего лица. Обязателен при указании значения «1» в элементе ПрФормДок
-                                  </xs:documentation>
-                                </xs:annotation>
-                                <xs:simpleType>
-                                  <xs:restriction base="xs:string">
-                                    <xs:minLength value="1"/>
-                                    <xs:maxLength value="1000"/>
-                                  </xs:restriction>
-                                </xs:simpleType>
-                              </xs:element>
-                            </xs:sequence>
                             <xs:attribute name="КодДиаг" use="required">
                               <xs:annotation>
                                 <xs:documentation>Код диагноза в соответствии международным классификатором болезней (МКБ-10)</xs:documentation>
@@ -190,7 +190,7 @@
                               <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                   <xs:minLength value="1"/>
-                                  <xs:maxLength value="255"/>
+                                  <xs:maxLength value="150"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
@@ -276,7 +276,7 @@
                             </xs:attribute>
                             <xs:attribute name="ДлитЛеч" use="optional">
                               <xs:annotation>
-                                <xs:documentation>Длительность лечения</xs:documentation>
+                                <xs:documentation>Длительность лечения (дней)</xs:documentation>
                               </xs:annotation>
                               <xs:simpleType>
                                 <xs:restriction base="xs:integer">
@@ -347,7 +347,7 @@
                               <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                   <xs:minLength value="1"/>
-                                  <xs:maxLength value="100"/>
+                                  <xs:maxLength value="15"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
@@ -427,10 +427,11 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:attribute>
-                  <xs:attribute name="Валюта" type="ОКВТип" use="required">
+                  <xs:attribute name="Валюта" type="ОКВТип" use="optional">
                     <xs:annotation>
                       <xs:documentation>
-                        Код валюты по лимиту ответственности страховой организации по стоимости согласованного объема лечения на каждое застрахованное лицо
+                        Код валюты по лимиту ответственности страховой организации по стоимости согласованного объема лечения на каждое застрахованное лицо.
+                        Общероссийский классификатор валют ID:01-338. Или значение «у.е.».
                       </xs:documentation>
                     </xs:annotation>
                   </xs:attribute>
@@ -453,7 +454,7 @@
                         </xs:element>
                         <xs:element name="Акциз" type="СумАкцизТип" minOccurs="0" maxOccurs="1">
                           <xs:annotation>
-                            <xs:documentation>В том числе сумма акциза</xs:documentation>
+                            <xs:documentation>Cумма акциза</xs:documentation>
                           </xs:annotation>
                         </xs:element>
                       </xs:sequence>
@@ -479,6 +480,9 @@
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element name="ИнфПредметГПСтрока" minOccurs="0" maxOccurs="unbounded">
+                      <xs:annotation>
+                        <xs:documentation>Описание объема предмета обязательств по гарантийному письму</xs:documentation>
+                      </xs:annotation>
                       <xs:complexType>
                         <xs:sequence>
                           <xs:element name="ДопИнф" minOccurs="0">
@@ -696,7 +700,7 @@
               </xs:element>
               <xs:element name="СведИсполОтправ">
                 <xs:annotation>
-                  <xs:documentation>Сведения об исполнителе от отправителя</xs:documentation>
+                  <xs:documentation>Сведения об исполнителе от отправителя. Ответственный сотрудник  компании-отправителя, сформировавший документ</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
@@ -740,7 +744,7 @@
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
                         <xs:minLength value="1"/>
-                        <xs:maxLength value="255"/>
+                        <xs:maxLength value="150"/>
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:attribute>
@@ -1355,6 +1359,46 @@
           <xs:documentation>ИНН юридического лица</xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="ИННФЛ" type="ИННФЛТип">
+        <xs:annotation>
+          <xs:documentation>ИНН физического лица, в том числе индивидуального предпринимателя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ДаннИно" type="СвИнНеУчТрНТип">
+        <xs:annotation>
+          <!---************************************************************************************************************************************************************-->
+          <xs:appinfo>
+            <sch:pattern name="Проверка присутствия элемента Стран, УдЛичнИнФЛ, Идентиф, ИныеСвед ">
+              <sch:rule context="ДаннИно">
+                <sch:assert test="usch:iif(@ИдСтат='ЮЛ', count(@Стран)!=0, count(@Стран)!=0 or count(@Стран)=0)">
+                  <usch:error code="0400300003" path="Стран" value-of-select="@ИдСтат">
+                    "Не выполнено условие: Элемент Стран обязателен при ИдСтат, равном "<usch:value-of select="@ИдСтат"/>"
+                  </usch:error>
+                </sch:assert>
+                <sch:assert test="usch:iif(@ИдСтат='ЮЛ' and count(@Наим)=0 and count(@ИныеСвед)=0, count(@Идентиф)!=0, count(@Идентиф)!=0 or count(@Идентиф)=0)">
+                  <usch:error code="0400300003" path="Идентиф" value-of-select="@ИдСтат">
+                    "Не выполнено условие: Элемент Идентиф обязателен при ИдСтат
+                    , равном "<usch:value-of select="@ИдСтат"/>" и при отсутствии Наим и ИныеСвед
+                  </usch:error>
+                </sch:assert>
+                <sch:assert test="usch:iif(@ИдСтат='ЮЛ' and count(@Наим)=0 and count(@Идентиф)=0, count(@ИныеСвед)!=0, count(@ИныеСвед)!=0 or count(@ИныеСвед)=0)">
+                  <usch:error code="0400300003" path="ИныеСвед" value-of-select="@ИдСтат">
+                    "Не выполнено условие: Элемент ИныеСвед обязателен при ИдСтат
+                    , равном "<usch:value-of select="@ИдСтат"/>" и при отсутствии Наим и Идентиф
+                  </usch:error>
+                </sch:assert>
+                <sch:assert test="usch:iif(@ИдСтат='ФЛ', count(УдЛичнИнФЛ)!=0, count(УдЛичнИнФЛ)!=0 or count(УдЛичнИнФЛ)=0)">
+                  <usch:error code="0400300003" path="УдЛичнИнФЛ" value-of-select="@ИдСтат">
+                    "Не выполнено условие: Элемент УдЛичнИнФЛ обязателен при ИдСтат, равном "<usch:value-of select="@ИдСтат"/>"
+                  </usch:error>
+                </sch:assert>
+              </sch:rule>
+            </sch:pattern>
+          </xs:appinfo>
+          <!---*************************************************************************************************************************************************************-->
+          <xs:documentation>Данные иностранного лица, не состоящего на учете в налоговых органах в качестве налогоплательщика</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="НаимОИВ">
         <xs:annotation>
           <xs:documentation>Краткое наименование органа исполнительной власти (специализированной уполномоченной организации), выдавшего документ</xs:documentation>
@@ -1367,6 +1411,107 @@
         </xs:simpleType>
       </xs:element>
     </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="СвИнНеУчТрНТип">
+    <xs:annotation>
+      <xs:documentation>Сведения об иностранном лице, не состоящем на учете в налоговых органах в качестве налогоплательщика</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="УдЛичнИнФЛ" type="УдЛичнИнФЛТип" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Данные документа, удостоверяющего личность иностранного физического лица</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="ИдСтат" use="required">
+      <xs:annotation>
+        <xs:documentation>Идентификация статуса</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="25"/>
+          <xs:enumeration value="ЮЛ"/>
+          <xs:enumeration value="ФЛ"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Стран" use="optional">
+      <xs:annotation>
+        <xs:documentation>Страна</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="255"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Наим" use="optional">
+      <xs:annotation>
+        <xs:documentation>Наименование юридического лица полное / Фамилия, имя, отчество (при наличии) физического лица</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="1000"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="Идентиф" use="optional">
+      <xs:annotation>
+        <xs:documentation>Идентификатор иностранного лица</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="255"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ИныеСвед" use="optional">
+      <xs:annotation>
+        <xs:documentation>Иные сведения, идентифицирующие иностранное лицо</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="255"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="УдЛичнИнФЛТип">
+    <xs:annotation>
+      <xs:documentation>Данные документа, удостоверяющего личность иностранного физического лица</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="ВидДок" use="required">
+      <xs:annotation>
+        <xs:documentation>Вид документа</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="1000"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="НомДок" use="required">
+      <xs:annotation>
+        <xs:documentation>Номер документа</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1"/>
+          <xs:maxLength value="100"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ДатаДок" type="ДатаТип" use="required">
+      <xs:annotation>
+        <xs:documentation>Дата выдачи документа</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
   </xs:complexType>
   <xs:complexType name="РеквДокДМСТип">
     <xs:annotation>
@@ -1693,7 +1838,8 @@
         </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:length value="16"/>
+            <xs:minLength value="1"/>
+            <xs:maxLength value="1000"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -1857,6 +2003,9 @@
     </xs:attribute>
   </xs:complexType>
   <xs:complexType name="МедУслТип">
+    <xs:annotation>
+      <xs:documentation>Медицинская услуга</xs:documentation>
+    </xs:annotation>
     <xs:sequence>
       <xs:element name="УсловОказМедПом" minOccurs="1" maxOccurs="unbounded">
         <xs:annotation>
@@ -1880,7 +2029,7 @@
       <xs:simpleType>
         <xs:restriction base="xs:string">
           <xs:minLength value="1"/>
-          <xs:maxLength value="50"/>
+          <xs:maxLength value="15"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
@@ -1894,7 +2043,7 @@
       <xs:simpleType>
         <xs:restriction base="xs:string">
           <xs:minLength value="1"/>
-          <xs:maxLength value="50"/>
+          <xs:maxLength value="150"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>
@@ -1930,10 +2079,13 @@
     </xs:attribute>
   </xs:complexType>
   <xs:complexType name="СведЦенаСкидкаТип">
+    <xs:annotation>
+      <xs:documentation>Информаци о ценах, скидках, налоге</xs:documentation>
+    </xs:annotation>
     <xs:sequence>
       <xs:element name="СумНал" type="СумНДСТип" minOccurs="1" maxOccurs="1">
         <xs:annotation>
-          <xs:documentation>В том числе сумма акциза</xs:documentation>
+          <xs:documentation>Сумма налога, предъявляемая покупателю</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ЦенаТов" minOccurs="1" maxOccurs="1">

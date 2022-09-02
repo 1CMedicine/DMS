@@ -313,7 +313,7 @@
                               <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                   <xs:minLength value="1"/>
-                                  <xs:maxLength value="100"/>
+                                  <xs:maxLength value="15"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
@@ -551,7 +551,7 @@
                               <xs:simpleType>
                                 <xs:restriction base="xs:string">
                                   <xs:minLength value="1"/>
-                                  <xs:maxLength value="100"/>
+                                  <xs:maxLength value="15"/>
                                 </xs:restriction>
                               </xs:simpleType>
                             </xs:attribute>
@@ -1616,7 +1616,7 @@
 			<xs:simpleType>
 				<xs:restriction base="xs:string">
 					<xs:minLength value="1"/>
-					<xs:maxLength value="50"/>
+					<xs:maxLength value="15"/>
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:attribute>
@@ -1630,7 +1630,7 @@
 			<xs:simpleType>
 				<xs:restriction base="xs:string">
 					<xs:minLength value="1"/>
-					<xs:maxLength value="50"/>
+					<xs:maxLength value="150"/>
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:attribute>
@@ -1666,10 +1666,13 @@
 		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="СведЦенаСкидкаТип">
-		<xs:sequence>
+    <xs:annotation>
+      <xs:documentation>Информаци о ценах, скидках, налоге</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
 			<xs:element name="СумНал" type="СумНДСТип" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>В том числе сумма акциза</xs:documentation>
+					<xs:documentation>Сумма налога, предъявляемая покупателю</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ЦенаТов" minOccurs="1" maxOccurs="1">
