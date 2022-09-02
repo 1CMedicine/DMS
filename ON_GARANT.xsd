@@ -750,7 +750,7 @@
             <xs:attribute name="ПрФормДок" use="required">
               <xs:annotation>
                 <xs:documentation>
-                  Признак порядка формирования гарантийного письма. Принимает значение:
+                  Признак порядка формирования гарантийного письма. Принимает значения:
                   1 – гарантийное письмо (направление) на оказание медицинской помощи;
                   2 – гарантийное письмо на работы/товары/лицензии;
                   3 – иное.
@@ -772,7 +772,7 @@
             </xs:attribute>
             <xs:attribute name="ВремИнфОтпр" type="ВремяТип" use="required">
               <xs:annotation>
-                <xs:documentation>Время формирования файла обмена</xs:documentation>
+                <xs:documentation>Время формирования (присвоения номера) файла обмена</xs:documentation>
               </xs:annotation>
             </xs:attribute>
             <xs:attribute name="НомерДок" use="required">
