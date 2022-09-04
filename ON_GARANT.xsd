@@ -1891,7 +1891,7 @@
           </xs:attribute>
           <xs:attribute name="ДопПризн" use="optional">
             <xs:annotation>
-              <xs:documentation>Дополнительная информация о признаке </xs:documentation>
+              <xs:documentation>ДопПризн</xs:documentation>
             </xs:annotation>
             <xs:simpleType>
               <xs:restriction base="xs:string">
