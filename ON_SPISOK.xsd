@@ -172,7 +172,7 @@
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:element>
-                        <xs:element name="ДопИнф" minOccurs="0">
+                        <xs:element name="ДопОпис" minOccurs="0">
                           <xs:annotation>
                             <xs:documentation>Дополнительная информация о программе (ограничения, особые условия и т.п.)</xs:documentation>
                           </xs:annotation>
@@ -274,9 +274,9 @@
                   </xs:complexContent>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="ИнфПол" minOccurs="0">
+              <xs:element name="ДопОпис" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>Информационное поле</xs:documentation>
+                  <xs:documentation>Дополнитлеьное описание</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
