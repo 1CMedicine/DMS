@@ -95,7 +95,8 @@
             <xs:sequence>
               <xs:element name="Участники">
                 <xs:annotation>
-                  <xs:documentation>Сведения об организации-отправителе и организации-получателя, в отношении которой направлен отзыв гарантийного письма. Письмо может направляться в МО или в иные организации, которые далее занимаются организацией оказания услуг.</xs:documentation>
+                  <xs:documentation>Сведения об организации-отправителе и организации-получателя, в отношении которой направлен отзыв гарантийного письма. 
+                  Письмо может направляться в МО или в иные организации, которые далее занимаются организацией оказания услуг.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
@@ -141,7 +142,7 @@
               </xs:element>
               <xs:element name="СведОДог" type="РеквДокДМСТип" minOccurs="0">
                 <xs:annotation>
-                  <xs:documentation>Сведения об основном документе</xs:documentation>
+                  <xs:documentation>Договор между страховой компанией и организацией – получателем документа</xs:documentation>
                 </xs:annotation>
               </xs:element>
               <xs:element name="ОтзывПисьма" minOccurs="1" maxOccurs="unbounded">
@@ -165,7 +166,7 @@
                   </xs:attribute>
                   <xs:attribute name="ДатаДок" type="ДатаТип" use="required">
                     <xs:annotation>
-                      <xs:documentation>Дата документа</xs:documentation>
+                      <xs:documentation>Дата документа. Дата присвоения регистрационного номера</xs:documentation>
                     </xs:annotation>
                   </xs:attribute>
                   <xs:attribute name="ПризДок" use="required">
@@ -350,7 +351,7 @@
               </xs:element>
               <xs:element name="СведИсполОтправ">
                 <xs:annotation>
-                  <xs:documentation>Сведения об исполнителе от отправителя</xs:documentation>
+                  <xs:documentation>Сведения об исполнителе от СК. Ответственный сотрудник  компании-отправителя, сформировавший документ</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>

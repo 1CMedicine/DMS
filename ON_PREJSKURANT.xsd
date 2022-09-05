@@ -17,7 +17,10 @@
 			</xs:appinfo>
 			<!---**************************************************************************************************************************************************************************-->
 			<xs:documentation>
-        Прейскурант организации – документ, содержащий перечень  услуг, работ, товаров, товаров, имущественных прав и их цены. На¬сто¬ящий документ может применяться при заключении договора на предоставление услуг, поставки товаров, имущественных прав.между сторонами договора. Прейскурант согласовывается и под¬писывается указанными сторонами, на основании этого в дальнейшем производятся взаиморасчеты сторон в рамках исполнения заключенного дого¬вора.
+        Прейскурант организации – документ, содержащий перечень  услуг, работ, товаров, товаров, имущественных прав и их цены. 
+        На¬сто¬ящий документ может применяться при заключении договора на предоставление услуг, поставки товаров, имущественных прав.между сторонами договора. 
+        Прейскурант согласовывается и под¬писывается указанными сторонами, на основании этого в дальнейшем производятся взаиморасчеты 
+        сторон в рамках исполнения заключенного дого¬вора.
       </xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
@@ -94,7 +97,7 @@
 						<xs:sequence>
 							<xs:element name="Участники">
 								<xs:annotation>
-									<xs:documentation>Сведения сторонах</xs:documentation>
+									<xs:documentation>Сведения о сторонах</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
 									<xs:sequence>
@@ -121,10 +124,10 @@
 									<xs:documentation>Сведения о дополнительном соглашении</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="ИнфМедПомощи" minOccurs="1" maxOccurs="unbounded">
+							<xs:element name="ИнфМедПомощи" minOccurs="0" maxOccurs="unbounded">
 								<xs:annotation>
 									<xs:documentation>
-Медицинские и сервисные услуги, подлежащие оплате
+Медицинские и сервисные услуги, подлежащие оплате. Указывается при указании значения «1» в элементе ПрФормДок
                   </xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
@@ -254,18 +257,18 @@
 												<xs:complexContent>
 													<xs:extension base="СведТов2Тип">
 														<xs:sequence>
-                              <xs:element name="МестоОказанияМО" minOccurs="0" maxOccurs="unbounded">
-                                <xs:annotation>
-                                  <xs:documentation>Место оказания услуги. OID подраздления по ФРМО</xs:documentation>
-                                </xs:annotation>
-                                <xs:simpleType>
-                                  <xs:restriction base="xs:string">
-                                    <xs:minLength value="1"/>
-                                    <xs:maxLength value="20"/>
-                                  </xs:restriction>
-                                </xs:simpleType>
-                              </xs:element>
-                              <xs:element name="УсловОказМедПом" minOccurs="0" maxOccurs="unbounded">
+															<xs:element name="МестоОказанияМО" minOccurs="0" maxOccurs="unbounded">
+																<xs:annotation>
+																	<xs:documentation>Место оказания услуги. OID подраздления по ФРМО</xs:documentation>
+																</xs:annotation>
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:minLength value="1"/>
+																		<xs:maxLength value="20"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
+															<xs:element name="УсловОказМедПом" minOccurs="0" maxOccurs="unbounded">
 																<xs:annotation>
 																	<xs:documentation>Условия оказания медицинской помощи. Принимает значение в соответствии с НСИ «Условия оказания медицинской помощи» 1.2.643.5.1.13.13.99.2.322</xs:documentation>
 																</xs:annotation>
@@ -306,17 +309,17 @@
 																</xs:complexType>
 															</xs:element>
 														</xs:sequence>
-                            <xs:attribute name="КодУсл" use="required">
-                              <xs:annotation>
-                                <xs:documentation>Код сервисной услуги/товара</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                  <xs:minLength value="1"/>
-                                  <xs:maxLength value="15"/>
-                                </xs:restriction>
-                              </xs:simpleType>
-                            </xs:attribute>
+														<xs:attribute name="КодУсл" use="required">
+															<xs:annotation>
+																<xs:documentation>Код сервисной услуги/товара</xs:documentation>
+															</xs:annotation>
+															<xs:simpleType>
+																<xs:restriction base="xs:string">
+																	<xs:minLength value="1"/>
+																	<xs:maxLength value="15"/>
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:attribute>
 														<xs:attribute name="НомерЗуба" use="optional">
 															<xs:annotation>
 																<xs:documentation>Номер зуба</xs:documentation>
@@ -359,245 +362,281 @@
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
-              <xs:element name="ИнфМедПомощиНеПодлежОпл" minOccurs="0" maxOccurs="unbounded">
-                <xs:annotation>
-                  <xs:documentation>
-                    Медицинские и сервисные услуги, которые не подлежат оплате
+							<xs:element name="ИнфМедПомощиНеПодлежОпл" minOccurs="0" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>
+Медицинские и сервисные услуги, которые не подлежат оплате. Указывается при указании значения «1» в элементе ПрФормДок
                   </xs:documentation>
-                </xs:annotation>
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="МедУсл" minOccurs="0" maxOccurs="unbounded">
-                      <xs:annotation>
-                        <xs:documentation>Медицинские услуги количество</xs:documentation>
-                      </xs:annotation>
-                      <xs:complexType>
-                        <xs:complexContent>
-                          <xs:extension base="МедУслТип">
-                            <xs:sequence>
-                              <xs:element name="МестоОказанияМО" minOccurs="0" maxOccurs="unbounded">
-                                <xs:annotation>
-                                  <xs:documentation>Место оказания услуги. OID подраздления по ФРМО</xs:documentation>
-                                </xs:annotation>
-                                <xs:simpleType>
-                                  <xs:restriction base="xs:string">
-                                    <xs:minLength value="1"/>
-                                    <xs:maxLength value="20"/>
-                                  </xs:restriction>
-                                </xs:simpleType>
-                              </xs:element>
-                              <xs:element name="ЦенаСкидка" type="СведЦенаСкидкаТип" minOccurs="1" maxOccurs="1">
-                                <xs:annotation>
-                                  <xs:documentation>Ценовые условия</xs:documentation>
-                                </xs:annotation>
-                              </xs:element>
-                              <xs:element name="ДопОпис" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Описание объема</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:sequence>
-                                    <xs:element name="ТекстИнф" type="ТекстИнфТип" minOccurs="0" maxOccurs="unbounded">
-                                      <xs:annotation>
-                                        <xs:documentation>Текстовая информация</xs:documentation>
-                                      </xs:annotation>
-                                    </xs:element>
-                                  </xs:sequence>
-                                  <xs:attribute name="ИдФайлИнфПол" use="optional">
-                                    <xs:annotation>
-                                      <xs:documentation>Идентификатор  файла информационного поля</xs:documentation>
-                                    </xs:annotation>
-                                    <xs:simpleType>
-                                      <xs:restriction base="xs:string">
-                                        <xs:length value="36"/>
-                                      </xs:restriction>
-                                    </xs:simpleType>
-                                  </xs:attribute>
-                                </xs:complexType>
-                              </xs:element>
-                            </xs:sequence>
-                            <xs:attribute name="КолМедУсл" use="required">
-                              <xs:annotation>
-                                <xs:documentation>Количество медицинских услуг</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                <xs:restriction base="xs:integer">
-                                  <xs:totalDigits value="3"/>
-                                </xs:restriction>
-                              </xs:simpleType>
-                            </xs:attribute>
-                            <xs:attribute name="УдалОказ" use="optional">
-                              <xs:annotation>
-                                <xs:documentation>Удаленность оказания для помощи на дому, для скорой / неотложной помощи</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                  <xs:minLength value="1"/>
-                                  <xs:maxLength value="255"/>
-                                </xs:restriction>
-                              </xs:simpleType>
-                            </xs:attribute>
-                            <xs:attribute name="ДлитЛеч" use="optional">
-                              <xs:annotation>
-                                <xs:documentation>Длительность лечения</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                <xs:restriction base="xs:integer">
-                                  <xs:totalDigits value="3"/>
-                                </xs:restriction>
-                              </xs:simpleType>
-                            </xs:attribute>
-                            <xs:attribute name="КатегорПалата" use="optional">
-                              <xs:annotation>
-                                <xs:documentation>Категория палаты</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                  <xs:minLength value="1"/>
-                                  <xs:maxLength value="50"/>
-                                </xs:restriction>
-                              </xs:simpleType>
-                            </xs:attribute>
-                            <xs:attribute name="НомерЗуба" use="optional">
-                              <xs:annotation>
-                                <xs:documentation>Номер зуба</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                  <xs:minLength value="1"/>
-                                  <xs:maxLength value="255"/>
-                                </xs:restriction>
-                              </xs:simpleType>
-                            </xs:attribute>
-                            <xs:attribute name="ПоверхнЗуба" use="optional">
-                              <xs:annotation>
-                                <xs:documentation>Поверхность зуба</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                  <xs:minLength value="1"/>
-                                  <xs:maxLength value="255"/>
-                                </xs:restriction>
-                              </xs:simpleType>
-                            </xs:attribute>
-                          </xs:extension>
-                        </xs:complexContent>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element name="СервУсл" minOccurs="0" maxOccurs="unbounded">
-                      <xs:annotation>
-                        <xs:documentation>Сервисные услуги</xs:documentation>
-                      </xs:annotation>
-                      <xs:complexType>
-                        <xs:complexContent>
-                          <xs:extension base="СведТов2Тип">
-                            <xs:sequence>
-                              <xs:element name="МестоОказанияМО" minOccurs="0" maxOccurs="unbounded">
-                                <xs:annotation>
-                                  <xs:documentation>Место оказания услуги. OID подраздления по ФРМО</xs:documentation>
-                                </xs:annotation>
-                                <xs:simpleType>
-                                  <xs:restriction base="xs:string">
-                                    <xs:minLength value="1"/>
-                                    <xs:maxLength value="20"/>
-                                  </xs:restriction>
-                                </xs:simpleType>
-                              </xs:element>
-                              <xs:element name="УсловОказМедПом" minOccurs="0" maxOccurs="unbounded">
-                                <xs:annotation>
-                                  <xs:documentation>Условия оказания медицинской помощи. Принимает значение в соответствии с НСИ «Условия оказания медицинской помощи» 1.2.643.5.1.13.13.99.2.322</xs:documentation>
-                                </xs:annotation>
-                                <xs:simpleType>
-                                  <xs:restriction base="xs:string">
-                                    <xs:minLength value="1"/>
-                                    <xs:maxLength value="50"/>
-                                  </xs:restriction>
-                                </xs:simpleType>
-                              </xs:element>
-                              <xs:element name="ЦенаСкидка" type="СведЦенаСкидкаТип" minOccurs="1" maxOccurs="1">
-                                <xs:annotation>
-                                  <xs:documentation>Ценовые условия, в том числе сумма акциза</xs:documentation>
-                                </xs:annotation>
-                              </xs:element>
-                              <xs:element name="ДопОпис" minOccurs="0">
-                                <xs:annotation>
-                                  <xs:documentation>Описание объема</xs:documentation>
-                                </xs:annotation>
-                                <xs:complexType>
-                                  <xs:sequence>
-                                    <xs:element name="ТекстИнф" type="ТекстИнфТип" minOccurs="0" maxOccurs="unbounded">
-                                      <xs:annotation>
-                                        <xs:documentation>Текстовая информация</xs:documentation>
-                                      </xs:annotation>
-                                    </xs:element>
-                                  </xs:sequence>
-                                  <xs:attribute name="ИдФайлИнфПол" use="optional">
-                                    <xs:annotation>
-                                      <xs:documentation>Идентификатор  файла информационного поля</xs:documentation>
-                                    </xs:annotation>
-                                    <xs:simpleType>
-                                      <xs:restriction base="xs:string">
-                                        <xs:length value="36"/>
-                                      </xs:restriction>
-                                    </xs:simpleType>
-                                  </xs:attribute>
-                                </xs:complexType>
-                              </xs:element>
-                            </xs:sequence>
-                            <xs:attribute name="КодУсл" use="required">
-                              <xs:annotation>
-                                <xs:documentation>Код сервисной услуги/товара</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                  <xs:minLength value="1"/>
-                                  <xs:maxLength value="15"/>
-                                </xs:restriction>
-                              </xs:simpleType>
-                            </xs:attribute>
-                            <xs:attribute name="НомерЗуба" use="optional">
-                              <xs:annotation>
-                                <xs:documentation>Номер зуба</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                  <xs:minLength value="1"/>
-                                  <xs:maxLength value="255"/>
-                                </xs:restriction>
-                              </xs:simpleType>
-                            </xs:attribute>
-                            <xs:attribute name="Класс" use="optional">
-                              <xs:annotation>
-                                <xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="МедУсл" minOccurs="0" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>Медицинские услуги количество</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:complexContent>
+													<xs:extension base="МедУслТип">
+														<xs:sequence>
+															<xs:element name="МестоОказанияМО" minOccurs="0" maxOccurs="unbounded">
+																<xs:annotation>
+																	<xs:documentation>Место оказания услуги. OID подраздления по ФРМО</xs:documentation>
+																</xs:annotation>
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:minLength value="1"/>
+																		<xs:maxLength value="20"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
+															<xs:element name="ЦенаСкидка" type="СведЦенаСкидкаТип" minOccurs="1" maxOccurs="1">
+																<xs:annotation>
+																	<xs:documentation>Ценовые условия</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ДопОпис" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Описание объема</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="ТекстИнф" type="ТекстИнфТип" minOccurs="0" maxOccurs="unbounded">
+																			<xs:annotation>
+																				<xs:documentation>Текстовая информация</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																	<xs:attribute name="ИдФайлИнфПол" use="optional">
+																		<xs:annotation>
+																			<xs:documentation>Идентификатор  файла информационного поля</xs:documentation>
+																		</xs:annotation>
+																		<xs:simpleType>
+																			<xs:restriction base="xs:string">
+																				<xs:length value="36"/>
+																			</xs:restriction>
+																		</xs:simpleType>
+																	</xs:attribute>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="КолМедУсл" use="required">
+															<xs:annotation>
+																<xs:documentation>Количество медицинских услуг</xs:documentation>
+															</xs:annotation>
+															<xs:simpleType>
+																<xs:restriction base="xs:integer">
+																	<xs:totalDigits value="3"/>
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:attribute>
+														<xs:attribute name="УдалОказ" use="optional">
+															<xs:annotation>
+																<xs:documentation>Удаленность оказания для помощи на дому, для скорой / неотложной помощи</xs:documentation>
+															</xs:annotation>
+															<xs:simpleType>
+																<xs:restriction base="xs:string">
+																	<xs:minLength value="1"/>
+																	<xs:maxLength value="255"/>
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:attribute>
+														<xs:attribute name="ДлитЛеч" use="optional">
+															<xs:annotation>
+																<xs:documentation>Длительность лечения</xs:documentation>
+															</xs:annotation>
+															<xs:simpleType>
+																<xs:restriction base="xs:integer">
+																	<xs:totalDigits value="3"/>
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:attribute>
+														<xs:attribute name="КатегорПалата" use="optional">
+															<xs:annotation>
+																<xs:documentation>Категория палаты</xs:documentation>
+															</xs:annotation>
+															<xs:simpleType>
+																<xs:restriction base="xs:string">
+																	<xs:minLength value="1"/>
+																	<xs:maxLength value="50"/>
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:attribute>
+														<xs:attribute name="НомерЗуба" use="optional">
+															<xs:annotation>
+																<xs:documentation>Номер зуба</xs:documentation>
+															</xs:annotation>
+															<xs:simpleType>
+																<xs:restriction base="xs:string">
+																	<xs:minLength value="1"/>
+																	<xs:maxLength value="255"/>
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:attribute>
+														<xs:attribute name="ПоверхнЗуба" use="optional">
+															<xs:annotation>
+																<xs:documentation>Поверхность зуба</xs:documentation>
+															</xs:annotation>
+															<xs:simpleType>
+																<xs:restriction base="xs:string">
+																	<xs:minLength value="1"/>
+																	<xs:maxLength value="255"/>
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:attribute>
+													</xs:extension>
+												</xs:complexContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="СервУсл" minOccurs="0" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>Сервисные услуги</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:complexContent>
+													<xs:extension base="СведТов2Тип">
+														<xs:sequence>
+															<xs:element name="МестоОказанияМО" minOccurs="0" maxOccurs="unbounded">
+																<xs:annotation>
+																	<xs:documentation>Место оказания услуги. OID подраздления по ФРМО</xs:documentation>
+																</xs:annotation>
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:minLength value="1"/>
+																		<xs:maxLength value="20"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
+															<xs:element name="УсловОказМедПом" minOccurs="0" maxOccurs="unbounded">
+																<xs:annotation>
+																	<xs:documentation>Условия оказания медицинской помощи. Принимает значение в соответствии с НСИ «Условия оказания медицинской помощи» 1.2.643.5.1.13.13.99.2.322</xs:documentation>
+																</xs:annotation>
+																<xs:simpleType>
+																	<xs:restriction base="xs:string">
+																		<xs:minLength value="1"/>
+																		<xs:maxLength value="50"/>
+																	</xs:restriction>
+																</xs:simpleType>
+															</xs:element>
+															<xs:element name="ЦенаСкидка" type="СведЦенаСкидкаТип" minOccurs="1" maxOccurs="1">
+																<xs:annotation>
+																	<xs:documentation>Ценовые условия, в том числе сумма акциза</xs:documentation>
+																</xs:annotation>
+															</xs:element>
+															<xs:element name="ДопОпис" minOccurs="0">
+																<xs:annotation>
+																	<xs:documentation>Описание объема</xs:documentation>
+																</xs:annotation>
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="ТекстИнф" type="ТекстИнфТип" minOccurs="0" maxOccurs="unbounded">
+																			<xs:annotation>
+																				<xs:documentation>Текстовая информация</xs:documentation>
+																			</xs:annotation>
+																		</xs:element>
+																	</xs:sequence>
+																	<xs:attribute name="ИдФайлИнфПол" use="optional">
+																		<xs:annotation>
+																			<xs:documentation>Идентификатор  файла информационного поля</xs:documentation>
+																		</xs:annotation>
+																		<xs:simpleType>
+																			<xs:restriction base="xs:string">
+																				<xs:length value="36"/>
+																			</xs:restriction>
+																		</xs:simpleType>
+																	</xs:attribute>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+														<xs:attribute name="КодУсл" use="required">
+															<xs:annotation>
+																<xs:documentation>Код сервисной услуги/товара</xs:documentation>
+															</xs:annotation>
+															<xs:simpleType>
+																<xs:restriction base="xs:string">
+																	<xs:minLength value="1"/>
+																	<xs:maxLength value="15"/>
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:attribute>
+														<xs:attribute name="НомерЗуба" use="optional">
+															<xs:annotation>
+																<xs:documentation>Номер зуба</xs:documentation>
+															</xs:annotation>
+															<xs:simpleType>
+																<xs:restriction base="xs:string">
+																	<xs:minLength value="1"/>
+																	<xs:maxLength value="255"/>
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:attribute>
+														<xs:attribute name="Класс" use="optional">
+															<xs:annotation>
+																<xs:documentation>
                                   Класс услуги
                                 </xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                  <xs:minLength value="1"/>
-                                  <xs:maxLength value="50"/>
-                                </xs:restriction>
-                              </xs:simpleType>
-                            </xs:attribute>
-                            <xs:attribute name="Источник" use="required">
-                              <xs:annotation>
-                                <xs:documentation>Источник кодов и наименования услуги</xs:documentation>
-                              </xs:annotation>
-                              <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                  <xs:minLength value="1"/>
-                                  <xs:maxLength value="150"/>
-                                </xs:restriction>
-                              </xs:simpleType>
-                            </xs:attribute>
-                          </xs:extension>
-                        </xs:complexContent>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="ИнфПол" minOccurs="0">
+															</xs:annotation>
+															<xs:simpleType>
+																<xs:restriction base="xs:string">
+																	<xs:minLength value="1"/>
+																	<xs:maxLength value="50"/>
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:attribute>
+														<xs:attribute name="Источник" use="required">
+															<xs:annotation>
+																<xs:documentation>Источник кодов и наименования услуги</xs:documentation>
+															</xs:annotation>
+															<xs:simpleType>
+																<xs:restriction base="xs:string">
+																	<xs:minLength value="1"/>
+																	<xs:maxLength value="150"/>
+																</xs:restriction>
+															</xs:simpleType>
+														</xs:attribute>
+													</xs:extension>
+												</xs:complexContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ИнфТовУсл" minOccurs="0" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>
+Прейскурант - работы/товары/лицензии. Указывается при указании значения «2» в элементе ПрФормДок
+                  </xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="СведТов2Тип">
+											<xs:sequence>
+												<xs:element name="ЦенаСкидка" type="СведЦенаСкидкаТип" minOccurs="1" maxOccurs="1">
+													<xs:annotation>
+														<xs:documentation>В том числе сумма акциза</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Акциз" type="СумАкцизТип" minOccurs="0" maxOccurs="1">
+													<xs:annotation>
+														<xs:documentation>Cумма акциза</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+											<xs:attribute name="КодТов" use="optional">
+												<xs:annotation>
+													<xs:documentation>Код услуги/товара</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:minLength value="1"/>
+														<xs:maxLength value="100"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:attribute>
+										</xs:extension>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ИнфПол" minOccurs="0">
 								<xs:annotation>
 									<xs:documentation>Информационное поле</xs:documentation>
 								</xs:annotation>
@@ -759,6 +798,22 @@
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
+						<xs:attribute name="ПрФормДок" use="required">
+							<xs:annotation>
+								<xs:documentation>
+                  Признак порядка формирования прейскуранта. Принимает значения:
+                  1 – гарантийное письмо (направление) на оказание медицинской помощи;
+                  2 – гарантийное письмо на работы/товары/лицензии.
+                </xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:length value="1"/>
+									<xs:enumeration value="1"/>
+									<xs:enumeration value="2"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
 						<xs:attribute name="ДатаИнфОтпр" type="ДатаТип" use="required">
 							<xs:annotation>
 								<xs:documentation>Дата формирования файла обмена</xs:documentation>
@@ -1415,6 +1470,35 @@
 			</xs:simpleType>
 		</xs:attribute>
 	</xs:complexType>
+	<xs:complexType name="СумАкцизТип">
+		<xs:annotation>
+			<xs:documentation>Сумма акциза</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="СумАкциз">
+				<xs:annotation>
+					<xs:documentation>Сумма акциза</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="19"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="БезАкциз">
+				<xs:annotation>
+					<xs:documentation>Без акциза</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="10"/>
+						<xs:enumeration value="без акциза"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
 	<xs:complexType name="СумНДСТип">
 		<xs:annotation>
 			<xs:documentation>Сумма НДС</xs:documentation>
@@ -1666,10 +1750,10 @@
 		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="СведЦенаСкидкаТип">
-    <xs:annotation>
-      <xs:documentation>Информаци о ценах, скидках, налоге</xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
+		<xs:annotation>
+			<xs:documentation>Информаци о ценах, скидках, налоге</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
 			<xs:element name="СумНал" type="СумНДСТип" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Сумма налога, предъявляемая покупателю</xs:documentation>

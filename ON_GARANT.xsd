@@ -339,6 +339,30 @@
                                   </xs:restriction>
                                 </xs:simpleType>
                               </xs:element>
+                              <xs:element name="ДопОпис" minOccurs="0">
+                                <xs:annotation>
+                                  <xs:documentation>Описание объема</xs:documentation>
+                                </xs:annotation>
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element name="ТекстИнф" type="ТекстИнфТип" minOccurs="0" maxOccurs="unbounded">
+                                      <xs:annotation>
+                                        <xs:documentation>Текстовая информация</xs:documentation>
+                                      </xs:annotation>
+                                    </xs:element>
+                                  </xs:sequence>
+                                  <xs:attribute name="ИдФайлИнфПол" use="optional">
+                                    <xs:annotation>
+                                      <xs:documentation>Идентификатор  файла информационного поля</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:simpleType>
+                                      <xs:restriction base="xs:string">
+                                        <xs:length value="36"/>
+                                      </xs:restriction>
+                                    </xs:simpleType>
+                                  </xs:attribute>
+                                </xs:complexType>
+                              </xs:element>
                             </xs:sequence>
                             <xs:attribute name="КодУсл" use="required">
                               <xs:annotation>
