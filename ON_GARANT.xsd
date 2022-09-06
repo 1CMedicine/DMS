@@ -2010,17 +2010,6 @@
         </xs:annotation>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="КодКат" use="optional">
-      <xs:annotation>
-        <xs:documentation>Код каталога</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:minLength value="1"/>
-          <xs:maxLength value="27"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
     <xs:attribute name="НаимТов" use="required">
       <xs:annotation>
         <xs:documentation>Наименование товара (описание выполненных работ, оказанных услуг), имущественных прав</xs:documentation>

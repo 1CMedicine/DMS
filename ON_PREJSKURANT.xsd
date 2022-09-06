@@ -655,17 +655,6 @@
                           </xs:annotation>
                         </xs:element>
                       </xs:sequence>
-                      <xs:attribute name="КодТов" use="optional">
-                        <xs:annotation>
-                          <xs:documentation>Код услуги/товара</xs:documentation>
-                        </xs:annotation>
-                        <xs:simpleType>
-                          <xs:restriction base="xs:string">
-                            <xs:minLength value="1"/>
-                            <xs:maxLength value="100"/>
-                          </xs:restriction>
-                        </xs:simpleType>
-                      </xs:attribute>
                     </xs:extension>
                   </xs:complexContent>
                 </xs:complexType>
