@@ -1228,10 +1228,17 @@
           <xs:documentation>Сведения о документе, удостоверяющего личность</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="СведОРаботадат" type="ФилЮЛТип" minOccurs="0" maxOccurs="1">
+      <xs:element name="СведОРаботадат" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Сведения о работодателе</xs:documentation>
         </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="1"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="150"/>
+          </xs:restriction>
+        </xs:simpleType>
       </xs:element>
       <xs:element name="ДатаРожд" type="ДатаТип" minOccurs="1">
         <xs:annotation>
