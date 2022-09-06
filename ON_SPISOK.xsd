@@ -1060,35 +1060,12 @@
       </xs:simpleType>
     </xs:attribute>
   </xs:complexType>
-  <xs:complexType name="ИдРекСостТип">
-    <xs:annotation>
-      <xs:documentation>Идентифицирующие реквизиты сторон, составивших документ</xs:documentation>
-    </xs:annotation>
-    <xs:choice>
-      <xs:element name="ИННЮЛ" type="ИННЮЛТип">
-        <xs:annotation>
-          <xs:documentation>ИНН юридического лица</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="НаимОИВ">
-        <xs:annotation>
-          <xs:documentation>Краткое наименование органа исполнительной власти (специализированной уполномоченной организации), выдавшего документ</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:minLength value="1"/>
-            <xs:maxLength value="255"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-    </xs:choice>
-  </xs:complexType>
   <xs:complexType name="РеквДокДМСТип">
     <xs:annotation>
       <xs:documentation>Реквизиты документа</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ИдРекСост" type="ИдРекСостТип" maxOccurs="unbounded">
+      <xs:element name="ИдРекСост" type="ИННЮЛТип" maxOccurs="unbounded">
         <xs:annotation>
           <xs:documentation>Идентифицирующие реквизиты сторон, составивших документ</xs:documentation>
         </xs:annotation>
