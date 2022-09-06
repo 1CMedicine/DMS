@@ -1841,6 +1841,9 @@
     </xs:attribute>
   </xs:complexType>
   <xs:complexType name="МедУслТип">
+    <xs:annotation>
+      <xs:documentation>Медицинская услуга</xs:documentation>
+    </xs:annotation>
     <xs:sequence>
       <xs:element name="УсловОказМедПом" minOccurs="1" maxOccurs="unbounded">
         <xs:annotation>
