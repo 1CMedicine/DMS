@@ -101,12 +101,12 @@
                 </xs:annotation>
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="СведМедОрг" type="УчастникДМСТип" minOccurs="1" maxOccurs="1">
+                    <xs:element name="СведМедОрг" type="УчастникТип" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
                         <xs:documentation>Сведения о медицинской организации</xs:documentation>
                       </xs:annotation>
                     </xs:element>
-                    <xs:element name="СведПолуч" type="УчастникДМСТип" minOccurs="1" maxOccurs="1">
+                    <xs:element name="СведПолуч" type="УчастникТип" minOccurs="1" maxOccurs="1">
                       <xs:annotation>
                         <xs:documentation>Сведения о получателе прейскуранта</xs:documentation>
                       </xs:annotation>
@@ -114,12 +114,12 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="СведОДог" type="РеквДокДМСТип" minOccurs="0">
+              <xs:element name="СведОДог" type="РеквДокТип" minOccurs="0">
                 <xs:annotation>
                   <xs:documentation>Сведения об основном документе</xs:documentation>
                 </xs:annotation>
               </xs:element>
-              <xs:element name="ДопСогл" type="РеквДокДМСТип" minOccurs="0">
+              <xs:element name="ДопСогл" type="РеквДокТип" minOccurs="0">
                 <xs:annotation>
                   <xs:documentation>Сведения о дополнительном соглашении</xs:documentation>
                 </xs:annotation>
@@ -1223,7 +1223,7 @@
       </xs:simpleType>
     </xs:attribute>
   </xs:complexType>
-  <xs:complexType name="УчастникДМСТип">
+  <xs:complexType name="УчастникТип">
     <xs:annotation>
       <xs:documentation>Сведения об участнике факта хозяйственной жизни</xs:documentation>
     </xs:annotation>
@@ -1573,7 +1573,7 @@
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
-  <xs:complexType name="РеквДокДМСТип">
+  <xs:complexType name="РеквДокТип">
     <xs:annotation>
       <xs:documentation>Реквизиты документа</xs:documentation>
     </xs:annotation>
