@@ -605,17 +605,7 @@
                   <xs:documentation>Сведения о лице, подписывающем файл в электронной форме</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
-                  <xs:choice>
-                    <xs:element name="ФЛ" type="СвФЛТип">
-                      <xs:annotation>
-                        <xs:documentation>Физическое лицо</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
-                    <xs:element name="ИП" type="СвИПТип">
-                      <xs:annotation>
-                        <xs:documentation>Индивидуальный предприниматель</xs:documentation>
-                      </xs:annotation>
-                    </xs:element>
+                  <xs:sequence>
                     <xs:element name="ЮЛ">
                       <xs:annotation>
                         <xs:documentation>Представитель юридического лица</xs:documentation>
@@ -679,7 +669,7 @@
                         </xs:attribute>
                       </xs:complexType>
                     </xs:element>
-                  </xs:choice>
+                  </xs:sequence>
                   <xs:attribute name="ОблПолн" use="required">
                     <xs:annotation>
                       <xs:documentation>Область полномочий</xs:documentation>
@@ -1123,95 +1113,6 @@
       </xs:simpleType>
     </xs:attribute>
   </xs:complexType>
-  <xs:complexType name="СвИПТип">
-    <xs:annotation>
-      <xs:documentation>Сведения об индивидуальном предпринимателе</xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="ФИО" type="ФИОТип">
-        <xs:annotation>
-          <xs:documentation>Фамилия, имя, отчество</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-    <xs:attribute name="ИННФЛ" type="ИННФЛТип" use="optional">
-      <xs:annotation>
-        <xs:documentation>ИНН</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="ДефИННФЛ" use="optional">
-      <xs:annotation>
-        <xs:documentation>ИНН</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:length value="1"/>
-          <xs:enumeration value="-"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="СвГосРегИП" use="optional">
-      <xs:annotation>
-        <xs:documentation>Реквизиты свидетельства о государственной регистрации индивидуального предпринимателя</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:maxLength value="100"/>
-          <xs:minLength value="1"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="ИныеСвед" use="optional">
-      <xs:annotation>
-        <xs:documentation>Иные сведения, идентифицирующие физическое лицо</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:minLength value="1"/>
-          <xs:maxLength value="255"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-  </xs:complexType>
-  <xs:complexType name="СвФЛТип">
-    <xs:annotation>
-      <xs:documentation>Сведения о физическом лице</xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="ФИО" type="ФИОТип">
-        <xs:annotation>
-          <xs:documentation>Фамилия, имя, отчество</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-    </xs:sequence>
-    <xs:attribute name="ГосРегИПВыдДов" use="optional">
-      <xs:annotation>
-        <xs:documentation>Реквизиты свидетельства о государственной регистрации индивидуального предпринимателя, выдавшего доверенность физическому лицу на подписание</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:maxLength value="100"/>
-          <xs:minLength value="1"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-    <xs:attribute name="ИННФЛ" type="ИННФЛТип" use="optional">
-      <xs:annotation>
-        <xs:documentation>ИНН физического лица</xs:documentation>
-      </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="ИныеСвед" use="optional">
-      <xs:annotation>
-        <xs:documentation>Иные сведения, идентифицирующие физическое лицо</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:minLength value="1"/>
-          <xs:maxLength value="255"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
-  </xs:complexType>
   <xs:complexType name="УчастникДМСТип">
     <xs:annotation>
       <xs:documentation>Сведения об участнике факта хозяйственной жизни</xs:documentation>
@@ -1222,12 +1123,7 @@
           <xs:documentation>Идентификационные сведения</xs:documentation>
         </xs:annotation>
         <xs:complexType>
-          <xs:choice>
-            <xs:element name="СвИП" type="СвИПТип">
-              <xs:annotation>
-                <xs:documentation>Сведения об индивидуальном предпринимателе</xs:documentation>
-              </xs:annotation>
-            </xs:element>
+          <xs:sequence>
             <xs:element name="СвЮЛУч">
               <xs:annotation>
                 <xs:documentation>Сведения о юридическом лице, состоящем на учете в налоговых органах</xs:documentation>
@@ -1267,52 +1163,7 @@
                 </xs:attribute>
               </xs:complexType>
             </xs:element>
-            <xs:element name="СвИнНеУч">
-              <xs:annotation>
-                <xs:documentation>Сведения об иностранном лице, не состоящем на учете в налоговых органах в качестве налогоплательщика</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:attribute name="НаимОрг" use="required">
-                  <xs:annotation>
-                    <xs:documentation>Наименование полное</xs:documentation>
-                  </xs:annotation>
-                  <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                      <xs:minLength value="1"/>
-                      <xs:maxLength value="1000"/>
-                    </xs:restriction>
-                  </xs:simpleType>
-                </xs:attribute>
-                <xs:attribute name="Идентиф" use="optional">
-                  <xs:annotation>
-                    <xs:documentation>Идентификатор юридического лица</xs:documentation>
-                  </xs:annotation>
-                  <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                      <xs:minLength value="1"/>
-                      <xs:maxLength value="255"/>
-                    </xs:restriction>
-                  </xs:simpleType>
-                </xs:attribute>
-                <xs:attribute name="ИныеСвед" use="optional">
-                  <xs:annotation>
-                    <xs:documentation>Иные сведения, идентифицирующие юридическое лицо</xs:documentation>
-                  </xs:annotation>
-                  <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                      <xs:minLength value="1"/>
-                      <xs:maxLength value="255"/>
-                    </xs:restriction>
-                  </xs:simpleType>
-                </xs:attribute>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="СвФЛУчастФХЖ" type="СвФЛТип">
-              <xs:annotation>
-                <xs:documentation>Сведения о физическом лице</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-          </xs:choice>
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="Адрес" type="АдресТип" minOccurs="0">
