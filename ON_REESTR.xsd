@@ -437,7 +437,29 @@
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:attribute>
-
+                        <xs:attribute name="ДефРез" use="optional">
+                          <xs:annotation>
+                            <xs:documentation>При составлении документа с Функция=ВОЗВР оказывается ответ страховщика на услугу. 1 - проверка прошла, 2 - проверка не пройдена</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:length value="1"/>
+                              <xs:enumeration value="1"/>
+                              <xs:enumeration value="2"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="ДефОпис" use="optional">
+                          <xs:annotation>
+                            <xs:documentation>При составлении документа с Функция=ВОЗВР оказывается ответ страховщика при ДефРез=2</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:minLength value="1"/>
+                              <xs:maxLength value="1000"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
                       </xs:complexType>
                     </xs:element>
                     <xs:element name="СервУсл" minOccurs="0" maxOccurs="unbounded">
@@ -571,9 +593,55 @@
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:attribute>
+                        <xs:attribute name="ДефРез" use="optional">
+                          <xs:annotation>
+                            <xs:documentation>При составлении документа с Функция=ВОЗВР оказывается ответ страховщика на услугу. 1 - проверка прошла, 2 - проверка не пройдена</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:length value="1"/>
+                              <xs:enumeration value="1"/>
+                              <xs:enumeration value="2"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="ДефОпис" use="optional">
+                          <xs:annotation>
+                            <xs:documentation>При составлении документа с Функция=ВОЗВР оказывается ответ страховщикапри ДефРез=2</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:minLength value="1"/>
+                              <xs:maxLength value="1000"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
                       </xs:complexType>
                     </xs:element>
                   </xs:sequence>
+                  <xs:attribute name="ДефРез" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>При составлении документа с Функция=ВОЗВР оказывается ответ страховщика на данные пацента (не услуги). 1 - проверка прошла, 2 - проверка не пройдена</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:length value="1"/>
+                        <xs:enumeration value="1"/>
+                        <xs:enumeration value="2"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="ДефОпис" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>При составлении документа с Функция=ВОЗВР оказывается ответ страховщика при ДефРез=2</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="1000"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
                 </xs:complexType>
               </xs:element>
               <xs:element name="ИнфПол" minOccurs="0">
@@ -780,6 +848,20 @@
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
+            <xs:attribute name="Функция" use="required">
+              <xs:annotation>
+                <xs:documentation>Функция</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:minLength value="1"/>
+                  <xs:maxLength value="10"/>
+                  <xs:enumeration value="РЕЕСТР"/>
+                  <xs:enumeration value="ВОЗВР"/>
+                  <xs:enumeration value="КОРРЕЕСТР"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
             <xs:attribute name="ДатаИнфОтпр" type="ДатаТип" use="required">
               <xs:annotation>
                 <xs:documentation>Дата формирования файла обмена</xs:documentation>
