@@ -362,7 +362,7 @@
                             </xs:complexType>
                           </xs:element>
                         </xs:sequence>
-                        <xs:attribute name="Код" use="required">
+                        <xs:attribute name="Код" use="optional">
                           <xs:annotation>
                             <xs:documentation>Код сервисной услуги</xs:documentation>
                           </xs:annotation>
@@ -468,7 +468,7 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:attribute>
-                  <xs:attribute name="Валюта" type="ОКВТип" use="optional">
+                  <xs:attribute name="Валюта" type="ОКВТип" use="required">
                     <xs:annotation>
                       <xs:documentation>
                         Код валюты по лимиту ответственности страховой организации по стоимости согласованного объема лечения на каждое застрахованное лицо.
@@ -1229,17 +1229,6 @@
                   <xs:annotation>
                     <xs:documentation>ИНН</xs:documentation>
                   </xs:annotation>
-                </xs:attribute>
-                <xs:attribute name="ДефИННЮЛ" use="optional">
-                  <xs:annotation>
-                    <xs:documentation>ИНН</xs:documentation>
-                  </xs:annotation>
-                  <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                      <xs:length value="1"/>
-                      <xs:enumeration value="-"/>
-                    </xs:restriction>
-                  </xs:simpleType>
                 </xs:attribute>
                 <xs:attribute name="КПП" type="КППТип" use="required">
                   <xs:annotation>
@@ -2056,7 +2045,7 @@
         </xs:simpleType>
       </xs:element>
     </xs:sequence>
-    <xs:attribute name="Код" use="required">
+    <xs:attribute name="Код" use="optional">
       <xs:annotation>
         <xs:documentation>
           Код медицинской услуги/ Справочник: Прейскурант МО или

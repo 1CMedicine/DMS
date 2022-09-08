@@ -319,22 +319,6 @@
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:attribute>
-                        <xs:attribute name="ТипНом" use="required">
-                          <xs:annotation>
-                            <xs:documentation>
-                              Источник кодов и наименований медицинской услуги.
-                              1 - номенклатура медицинских услуг (1.2.643.5.1.13.13.11.1070)
-                              2 - внутренняя номенклатура (разработанная в МО).
-                            </xs:documentation>
-                          </xs:annotation>
-                          <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                              <xs:length value="1"/>
-                              <xs:enumeration value="1"/>
-                              <xs:enumeration value="2"/>
-                            </xs:restriction>
-                          </xs:simpleType>
-                        </xs:attribute>
                         <xs:attribute name="Класс" use="optional">
                           <xs:annotation>
                             <xs:documentation>
@@ -359,39 +343,6 @@
                             <xs:documentation>Дата начала оказания услуги</xs:documentation>
                           </xs:annotation>
                         </xs:attribute>
-                        <xs:attribute name="УдалОказ" use="optional">
-                          <xs:annotation>
-                            <xs:documentation>Удаленность оказания для помощи на дому, для скорой / неотложной помощи</xs:documentation>
-                          </xs:annotation>
-                          <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                              <xs:minLength value="1"/>
-                              <xs:maxLength value="255"/>
-                            </xs:restriction>
-                          </xs:simpleType>
-                        </xs:attribute>
-                        <xs:attribute name="МестоОказанияМО" use="optional">
-                          <xs:annotation>
-                            <xs:documentation>Место оказания услуги. OID подраздления по ФРМО</xs:documentation>
-                          </xs:annotation>
-                          <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                              <xs:minLength value="1"/>
-                              <xs:maxLength value="20"/>
-                            </xs:restriction>
-                          </xs:simpleType>
-                        </xs:attribute>
-                        <xs:attribute name="КатегорПалаты" use="optional">
-                          <xs:annotation>
-                            <xs:documentation>Категория палаты</xs:documentation>
-                          </xs:annotation>
-                          <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                              <xs:minLength value="1"/>
-                              <xs:maxLength value="50"/>
-                            </xs:restriction>
-                          </xs:simpleType>
-                        </xs:attribute>
                         <xs:attribute name="ИдентификаторЭМД" use="optional">
                           <xs:annotation>
                             <xs:documentation>
@@ -403,16 +354,6 @@
                             <xs:restriction base="xs:string">
                               <xs:minLength value="1"/>
                               <xs:maxLength value="100"/>
-                            </xs:restriction>
-                          </xs:simpleType>
-                        </xs:attribute>
-                        <xs:attribute name="ДлитЛеч" use="optional">
-                          <xs:annotation>
-                            <xs:documentation>Длительность лечения (дней)</xs:documentation>
-                          </xs:annotation>
-                          <xs:simpleType>
-                            <xs:restriction base="xs:integer">
-                              <xs:totalDigits value="3"/>
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:attribute>
@@ -439,7 +380,7 @@
                         </xs:attribute>
                         <xs:attribute name="ДефРез" use="optional">
                           <xs:annotation>
-                            <xs:documentation>При составлении документа с Функция=ВОЗВР оказывается ответ страховщика на услугу. 1 - проверка прошла, 2 - проверка не пройдена</xs:documentation>
+                            <xs:documentation>При составлении документа с Функция=ЭКСП оказывается ответ страховщика на услугу. 1 - проверка прошла, 2 - проверка не пройдена</xs:documentation>
                           </xs:annotation>
                           <xs:simpleType>
                             <xs:restriction base="xs:string">
@@ -451,7 +392,7 @@
                         </xs:attribute>
                         <xs:attribute name="ДефОпис" use="optional">
                           <xs:annotation>
-                            <xs:documentation>При составлении документа с Функция=ВОЗВР оказывается ответ страховщика при ДефРез=2</xs:documentation>
+                            <xs:documentation>При составлении документа с Функция=ЭКСП оказывается ответ страховщика при ДефРез=2</xs:documentation>
                           </xs:annotation>
                           <xs:simpleType>
                             <xs:restriction base="xs:string">
@@ -595,7 +536,7 @@
                         </xs:attribute>
                         <xs:attribute name="ДефРез" use="optional">
                           <xs:annotation>
-                            <xs:documentation>При составлении документа с Функция=ВОЗВР оказывается ответ страховщика на услугу. 1 - проверка прошла, 2 - проверка не пройдена</xs:documentation>
+                            <xs:documentation>При составлении документа с Функция=ЭКСП оказывается ответ страховщика на услугу. 1 - проверка прошла, 2 - проверка не пройдена</xs:documentation>
                           </xs:annotation>
                           <xs:simpleType>
                             <xs:restriction base="xs:string">
@@ -607,7 +548,7 @@
                         </xs:attribute>
                         <xs:attribute name="ДефОпис" use="optional">
                           <xs:annotation>
-                            <xs:documentation>При составлении документа с Функция=ВОЗВР оказывается ответ страховщикапри ДефРез=2</xs:documentation>
+                            <xs:documentation>При составлении документа с Функция=ЭКСП оказывается ответ страховщикапри ДефРез=2</xs:documentation>
                           </xs:annotation>
                           <xs:simpleType>
                             <xs:restriction base="xs:string">
@@ -621,7 +562,7 @@
                   </xs:sequence>
                   <xs:attribute name="ДефРез" use="optional">
                     <xs:annotation>
-                      <xs:documentation>При составлении документа с Функция=ВОЗВР оказывается ответ страховщика на данные пацента (не услуги). 1 - проверка прошла, 2 - проверка не пройдена</xs:documentation>
+                      <xs:documentation>При составлении документа с Функция=ЭКСП оказывается ответ страховщика на данные пацента (не услуги). 1 - проверка прошла, 2 - проверка не пройдена</xs:documentation>
                     </xs:annotation>
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
@@ -633,7 +574,7 @@
                   </xs:attribute>
                   <xs:attribute name="ДефОпис" use="optional">
                     <xs:annotation>
-                      <xs:documentation>При составлении документа с Функция=ВОЗВР оказывается ответ страховщика при ДефРез=2</xs:documentation>
+                      <xs:documentation>При составлении документа с Функция=ЭКСП оказывается ответ страховщика при ДефРез=2</xs:documentation>
                     </xs:annotation>
                     <xs:simpleType>
                       <xs:restriction base="xs:string">
@@ -857,7 +798,7 @@
                   <xs:minLength value="1"/>
                   <xs:maxLength value="10"/>
                   <xs:enumeration value="РЕЕСТР"/>
-                  <xs:enumeration value="ВОЗВР"/>
+                  <xs:enumeration value="ЭКСП"/>
                   <xs:enumeration value="КОРРЕЕСТР"/>
                 </xs:restriction>
               </xs:simpleType>
@@ -1227,17 +1168,6 @@
                     <xs:documentation>ИНН</xs:documentation>
                   </xs:annotation>
                 </xs:attribute>
-                <xs:attribute name="ДефИННЮЛ" use="optional">
-                  <xs:annotation>
-                    <xs:documentation>ИНН</xs:documentation>
-                  </xs:annotation>
-                  <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                      <xs:length value="1"/>
-                      <xs:enumeration value="-"/>
-                    </xs:restriction>
-                  </xs:simpleType>
-                </xs:attribute>
                 <xs:attribute name="КПП" type="КППТип" use="required">
                   <xs:annotation>
                     <xs:documentation>КПП</xs:documentation>
@@ -1360,7 +1290,7 @@
       <xs:simpleType>
         <xs:restriction base="xs:string">
           <xs:minLength value="1"/>
-          <xs:maxLength value="255"/>
+          <xs:maxLength value="20"/>
         </xs:restriction>
       </xs:simpleType>
     </xs:attribute>

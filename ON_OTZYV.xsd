@@ -808,17 +808,6 @@
                     <xs:documentation>ИНН</xs:documentation>
                   </xs:annotation>
                 </xs:attribute>
-                <xs:attribute name="ДефИННЮЛ" use="optional">
-                  <xs:annotation>
-                    <xs:documentation>ИНН</xs:documentation>
-                  </xs:annotation>
-                  <xs:simpleType>
-                    <xs:restriction base="xs:string">
-                      <xs:length value="1"/>
-                      <xs:enumeration value="-"/>
-                    </xs:restriction>
-                  </xs:simpleType>
-                </xs:attribute>
                 <xs:attribute name="КПП" type="КППТип" use="required">
                   <xs:annotation>
                     <xs:documentation>КПП</xs:documentation>
