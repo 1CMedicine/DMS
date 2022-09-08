@@ -253,17 +253,6 @@
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:attribute>
-                        <xs:attribute name="Источник" use="required">
-                          <xs:annotation>
-                            <xs:documentation>Источник кодов и наименования услуги</xs:documentation>
-                          </xs:annotation>
-                          <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                              <xs:minLength value="1"/>
-                              <xs:maxLength value="150"/>
-                            </xs:restriction>
-                          </xs:simpleType>
-                        </xs:attribute>
                         <xs:attribute name="ДефРез" use="optional">
                           <xs:annotation>
                             <xs:documentation>При составлении документа с Функция=СОГЛ оказывается ответ страховщика на услугу. 1 - услуга согласована, 2 - не согласована</xs:documentation>
@@ -418,17 +407,6 @@
                             <xs:restriction base="xs:string">
                               <xs:minLength value="1"/>
                               <xs:maxLength value="50"/>
-                            </xs:restriction>
-                          </xs:simpleType>
-                        </xs:attribute>
-                        <xs:attribute name="Источник" use="required">
-                          <xs:annotation>
-                            <xs:documentation>Источник кодов и наименования услуги</xs:documentation>
-                          </xs:annotation>
-                          <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                              <xs:minLength value="1"/>
-                              <xs:maxLength value="150"/>
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:attribute>
