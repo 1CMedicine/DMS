@@ -1351,17 +1351,6 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="ДефНДС">
-        <xs:annotation>
-          <xs:documentation>Знак прочерка</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:length value="1"/>
-            <xs:enumeration value="-"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="УдЛичнФЛТип">

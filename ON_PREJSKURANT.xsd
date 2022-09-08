@@ -157,6 +157,29 @@
                                 </xs:annotation>
                               </xs:element>
                             </xs:sequence>
+                            <xs:attribute name="ДефРез" use="optional">
+                              <xs:annotation>
+                                <xs:documentation>При составлении документа с Функция=СОГЛ оказывается ответ страховщика на услугу. 1 - услуга согласована, 2 - не согласована</xs:documentation>
+                              </xs:annotation>
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:length value="1"/>
+                                  <xs:enumeration value="1"/>
+                                  <xs:enumeration value="2"/>
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:attribute>
+                            <xs:attribute name="ДефОпис" use="optional">
+                              <xs:annotation>
+                                <xs:documentation>При составлении документа с Функция=СОГЛ оказывается ответ страховщика при ДефРез=2</xs:documentation>
+                              </xs:annotation>
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:minLength value="1"/>
+                                  <xs:maxLength value="1000"/>
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:attribute>
                           </xs:extension>
                         </xs:complexContent>
                       </xs:complexType>
@@ -238,6 +261,29 @@
                             <xs:restriction base="xs:string">
                               <xs:minLength value="1"/>
                               <xs:maxLength value="150"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="ДефРез" use="optional">
+                          <xs:annotation>
+                            <xs:documentation>При составлении документа с Функция=СОГЛ оказывается ответ страховщика на услугу. 1 - услуга согласована, 2 - не согласована</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:length value="1"/>
+                              <xs:enumeration value="1"/>
+                              <xs:enumeration value="2"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="ДефОпис" use="optional">
+                          <xs:annotation>
+                            <xs:documentation>При составлении документа с Функция=СОГЛ оказывается ответ страховщика при ДефРез=2</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:minLength value="1"/>
+                              <xs:maxLength value="1000"/>
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:attribute>
@@ -279,6 +325,29 @@
                                 </xs:annotation>
                               </xs:element>
                             </xs:sequence>
+                            <xs:attribute name="ДефРез" use="optional">
+                              <xs:annotation>
+                                <xs:documentation>При составлении документа с Функция=СОГЛ оказывается ответ страховщика на услугу. 1 - услуга согласована, 2 - не согласована</xs:documentation>
+                              </xs:annotation>
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:length value="1"/>
+                                  <xs:enumeration value="1"/>
+                                  <xs:enumeration value="2"/>
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:attribute>
+                            <xs:attribute name="ДефОпис" use="optional">
+                              <xs:annotation>
+                                <xs:documentation>При составлении документа с Функция=СОГЛ оказывается ответ страховщика при ДефРез=2</xs:documentation>
+                              </xs:annotation>
+                              <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                  <xs:minLength value="1"/>
+                                  <xs:maxLength value="1000"/>
+                                </xs:restriction>
+                              </xs:simpleType>
+                            </xs:attribute>
                           </xs:extension>
                         </xs:complexContent>
                       </xs:complexType>
@@ -363,6 +432,29 @@
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:attribute>
+                        <xs:attribute name="ДефРез" use="optional">
+                          <xs:annotation>
+                            <xs:documentation>При составлении документа с Функция=СОГЛ оказывается ответ страховщика на услугу. 1 - услуга согласована, 2 - не согласована</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:length value="1"/>
+                              <xs:enumeration value="1"/>
+                              <xs:enumeration value="2"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="ДефОпис" use="optional">
+                          <xs:annotation>
+                            <xs:documentation>При составлении документа с Функция=СОГЛ оказывается ответ страховщика при ДефРез=2</xs:documentation>
+                          </xs:annotation>
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:minLength value="1"/>
+                              <xs:maxLength value="1000"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
                       </xs:complexType>
                     </xs:element>
                   </xs:sequence>
@@ -389,6 +481,29 @@
                           </xs:annotation>
                         </xs:element>
                       </xs:sequence>
+                      <xs:attribute name="ДефРез" use="optional">
+                        <xs:annotation>
+                          <xs:documentation>При составлении документа с Функция=СОГЛ оказывается ответ страховщика на услугу. 1 - услуга согласована, 2 - не согласована</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:length value="1"/>
+                            <xs:enumeration value="1"/>
+                            <xs:enumeration value="2"/>
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:attribute>
+                      <xs:attribute name="ДефОпис" use="optional">
+                        <xs:annotation>
+                          <xs:documentation>При составлении документа с Функция=СОГЛ оказывается ответ страховщика при ДефРез=2</xs:documentation>
+                        </xs:annotation>
+                        <xs:simpleType>
+                          <xs:restriction base="xs:string">
+                            <xs:minLength value="1"/>
+                            <xs:maxLength value="1000"/>
+                          </xs:restriction>
+                        </xs:simpleType>
+                      </xs:attribute>
                     </xs:extension>
                   </xs:complexContent>
                 </xs:complexType>
@@ -555,6 +670,19 @@
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
+            <xs:attribute name="Функция" use="required">
+              <xs:annotation>
+                <xs:documentation>Функция</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:minLength value="1"/>
+                  <xs:maxLength value="10"/>
+                  <xs:enumeration value="ПРЕЙСК"/>
+                  <xs:enumeration value="СОГЛ"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
             <xs:attribute name="ДатаИнфОтпр" type="ДатаТип" use="required">
               <xs:annotation>
                 <xs:documentation>Дата формирования файла обмена</xs:documentation>
@@ -867,17 +995,6 @@
       <xs:annotation>
         <xs:documentation>ИНН</xs:documentation>
       </xs:annotation>
-    </xs:attribute>
-    <xs:attribute name="ДефИННФЛ" use="optional">
-      <xs:annotation>
-        <xs:documentation>ИНН</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:length value="1"/>
-          <xs:enumeration value="-"/>
-        </xs:restriction>
-      </xs:simpleType>
     </xs:attribute>
     <xs:attribute name="СвГосРегИП" use="optional">
       <xs:annotation>
@@ -1396,17 +1513,6 @@
             <xs:maxLength value="18"/>
             <xs:minLength value="1"/>
             <xs:enumeration value="без НДС"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="ДефНДС">
-        <xs:annotation>
-          <xs:documentation>Знак прочерка</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:length value="1"/>
-            <xs:enumeration value="-"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>

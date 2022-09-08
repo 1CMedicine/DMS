@@ -1120,17 +1120,6 @@
         <xs:documentation>ИНН</xs:documentation>
       </xs:annotation>
     </xs:attribute>
-    <xs:attribute name="ДефИННФЛ" use="optional">
-      <xs:annotation>
-        <xs:documentation>ИНН</xs:documentation>
-      </xs:annotation>
-      <xs:simpleType>
-        <xs:restriction base="xs:string">
-          <xs:length value="1"/>
-          <xs:enumeration value="-"/>
-        </xs:restriction>
-      </xs:simpleType>
-    </xs:attribute>
     <xs:attribute name="СвГосРегИП" use="optional">
       <xs:annotation>
         <xs:documentation>Реквизиты свидетельства о государственной регистрации индивидуального предпринимателя</xs:documentation>
@@ -1648,17 +1637,6 @@
             <xs:maxLength value="18"/>
             <xs:minLength value="1"/>
             <xs:enumeration value="без НДС"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:element>
-      <xs:element name="ДефНДС">
-        <xs:annotation>
-          <xs:documentation>Знак прочерка</xs:documentation>
-        </xs:annotation>
-        <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:length value="1"/>
-            <xs:enumeration value="-"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
